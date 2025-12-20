@@ -10,13 +10,22 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Spacer()
+            HStack {
+                Button("Инфо") {
+                    print("Button tapped")
+                }
+                Spacer()
+                Button("Настройки") {
+                    print("Button tapped")
+                }
+            }
         }
         .padding()
+        .background(Image("1_discipline_14_en"))
     }
+    
+    
 }
 
 #Preview {
