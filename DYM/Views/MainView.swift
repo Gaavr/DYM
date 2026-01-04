@@ -9,20 +9,34 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        VStack {
-        Spacer()
-            HStack {
-                Button("Инфо") {
-                    print("Button tapped")
+        NavigationStack {
+            ZStack {
+                Image("1_discipline_08_ru")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+
+                VStack {
+                    Spacer()
+                    HStack {
+                        NavigationLink(destination: AboutView()) {
+                            Label("About", systemImage: "info.circle")
+                                .labelStyle(.iconOnly)
+                                .font(.system(size: 50))
+                                .foregroundStyle(.white)
+                        }
+                        Spacer()
+                        NavigationLink(destination: SettingsView()) {
+                            Label("Settings", systemImage: "gearshape")
+                                .labelStyle(.iconOnly)
+                                .font(.system(size: 50))
+                                .foregroundStyle(.white)
+                        }
+                    }
                 }
-                Spacer()
-                Button("Настройки") {
-                    print("Button tapped")
-                }
+                .padding(.horizontal, 40)
             }
         }
-        .padding()
-        .background(Image("1_discipline_14_en"))
     }
     
     

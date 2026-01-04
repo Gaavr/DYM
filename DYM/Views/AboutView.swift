@@ -9,7 +9,18 @@ import SwiftUI
 
 struct AboutView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Dominate your mind")
+                .font(.largeTitle.bold())
+                Spacer()
+            HStack {
+                Image(systemName: "brain")
+                    .font(.largeTitle.bold().bold().pointSize(50))
+                Text("Dominate your mind")
+                    .font(.largeTitle.bold())
+                
+            }
+        }
     }
 }
 
