@@ -11,58 +11,34 @@ struct AboutView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Image(systemName: "brain")
-                    .font(.largeTitle.bold().bold().pointSize(50))
-                   
-                Text("Dominate your mind")
-                    .font(.largeTitle.bold())
-            }
-            HStack() {
-                Spacer()
-                    .padding(1)
-
-                Text(AboutText.psychologyArticleText)
-                    .multilineTextAlignment(.leading)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    AboutBlockView(title:  AboutText.awarenessTitle,
+                                   text: AboutText.awarenessText,
+                                   systemImage: AboutText.awarenessSymbol)
+                    AboutBlockView(title: AboutText.interruptionTitle,
+                                   text: AboutText.interruptionText,
+                                   systemImage: AboutText.interruptionSymbol)
+                    AboutBlockView(title: AboutText.philosophyTitle,
+                                   text: AboutText.philosophyText,
+                                   systemImage: AboutText.philosophySymbol)
+                    AboutBlockView(title: AboutText.howItWorksTitle,
+                                   text: AboutText.howItWorksText,
+                                   systemImage: AboutText.howItWorksSymbol)
+                }
             }
         }
-        .navigationTitle(Text("Dominate your mind"))
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack(spacing: 6) {
+                    Image(systemName: "brain")
+                        .font(.system(size: 17, weight: .semibold))
+                    Text(AboutText.appTitle)
+                        .font(.system(size: 17, weight: .semibold))
+                }
+            }
+        }
         
-//        Grid(alignment: .leading) {
-//            GridRow {
-//                Image(systemName: "brain")
-//                    .font(.system(size: 50, weight: .bold))
-//                Text("Dominate your mind")
-//                    .font(.largeTitle.bold())
-//            }
-//            
-//            
-//
-//            GridRow {
-//                Color.clear
-//                Text(psychologyArticleText)
-//            }
-//            
-//            GridRow {
-//                Image(systemName: "brain")
-//                    .font(.system(size: 50, weight: .bold))
-//                Text("Dominate your mind")
-//                    .font(.largeTitle.bold())
-//            }
-//
-//            GridRow {
-//                Color.clear
-//                Text(psychologyArticleText)
-//            }
-//            
-//        }
-//        .navigationTitle(Text("Dominate your mind"))
-    }
-}
-
-struct AboutSection: View {
-    var body: some View {
-        Text("Hello, world!")
     }
 }
 

@@ -5,63 +5,65 @@
 //  Created by Andrei Gavrilenko on 15.01.2026.
 //
 
+//TODO: Переделать на реальную информацию
 enum AboutText {
-    static let title = "Dominate Your Mind"
-    
-    static let psychologyArticleText = """
-    Your mind constantly produces thoughts.
-    Thoughts appear automatically — you do not choose most of them.
+   
+    static let appTitle = "Dominate Your Mind"
+    static let appSymbol = "brain.head.profile"
 
-    But you are not your thoughts.
-    You are the one who notices them.
+    static let awarenessTitle = "You Are Not Your Thoughts"
+    static let awarenessSymbol = "eye"
 
-    This app creates a deliberate pause —
-    a break in the automatic loop of reactive thinking.
+    static let awarenessText = """
+    The mind generates thoughts automatically.
+    Most of them arise without intention or choice.
 
-    By presenting a single, focused message
-    at the exact moment of struggle,
-    it shifts your brain from autopilot
-    into conscious awareness.
+    Thoughts are events — not commands.
+    You do not have to follow them.
+
+    Awareness begins the moment you notice
+    what your mind is doing.
     """
-    
-    static let whyAppExistArticleText = """
-    Most mental struggles are not caused by lack of discipline,
-    but by operating on autopilot.
 
-    Dominate Your Mind exists to interrupt that state.
+    static let interruptionTitle = "Breaking Autopilot"
+    static let interruptionSymbol = "pause.circle"
 
-    It does not try to fix you.
-    It does not tell you what to feel.
+    static let interruptionText = """
+    Most mental struggles happen on autopilot.
 
-    It helps you notice what is already happening —
-    and regain conscious control.
+    This app creates a deliberate interruption —
+    a pause between impulse and reaction.
+
+    That pause is where choice becomes possible.
     """
-    
-    static let designPhilosophyArticleText = """
+
+    static let philosophyTitle = "Design Philosophy"
+    static let philosophySymbol = "circle.dashed"
+
+    static let philosophyText = """
     Simplicity is intentional.
 
     The brain processes less information more deeply.
-    That is why this app avoids feeds, streaks, and notifications.
+    That is why this app avoids feeds, streaks, and noise.
 
-    Every element exists to reduce friction
-    between awareness and action.
-
-    Nothing more.
-    Nothing distracting.
+    Every element exists for one purpose:
+    to reduce friction between awareness and action.
     """
-    
-    static let wowWorksArticleText = """
-    The app delivers a single, focused message
-    at the moment you choose to open it.
 
-    This intentional interruption breaks habitual thinking loops
-    and shifts attention from reaction to observation.
+    static let howItWorksTitle = "How It Works"
+    static let howItWorksSymbol = "sparkles"
+
+    static let howItWorksText = """
+    You open the app by choice.
+
+    You see one message.
+    One idea.
+    One moment of clarity.
 
     No tracking.
-    No analytics.
-    No cognitive overload.
+    No persuasion.
+    No endless scrolling.
 
-    Just one message.
-    One moment of awareness.
+    Just awareness — when you need it.
     """
 }
