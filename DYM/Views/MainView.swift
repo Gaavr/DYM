@@ -8,38 +8,29 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    
     var body: some View {
         NavigationStack {
-            ZStack {
-                Image("1_discipline_08_ru")
-                            .resizable()
-                            .scaledToFill()
-                            .ignoresSafeArea()
-
-                VStack {
-                    Spacer()
-                    HStack {
-                        NavigationLink(destination: AboutView()) {
-                            Label("About", systemImage: "info.circle")
-                                .labelStyle(.iconOnly)
-                                .font(.system(size: 50))
-                                .foregroundStyle(.white)
-                        }
-                        Spacer()
-                        NavigationLink(destination: SettingsView()) {
-                            Label("Settings", systemImage: "gearshape")
-                                .labelStyle(.iconOnly)
-                                .font(.system(size: 50))
-                                .foregroundStyle(.white)
-                        }
+                TabView {
+                    Tab("DYM", systemImage: "brain") {
+                        
+                    }
+                    Tab("About", systemImage: "info.circle") {
+                        AboutView()
+                    }
+                    Tab("Settings", systemImage: "gearshape.fill") {
+                        
+                    }
+//                  TODO: Говорят нельзя юзать роль поиск чтобы отделить кнопку добавления https://developer.apple.com/design/human-interface-guidelines/tab-bars
+                    Tab("Add", systemImage: "plus", role: .search ) {
+                        
                     }
                 }
-                .padding(.horizontal, 40)
-            }
+                .labelStyle(.iconOnly)
         }
+        .preferredColorScheme(.light)
     }
-    
-    
 }
 
 #Preview {

@@ -12,6 +12,17 @@ struct AboutView: View {
     var body: some View {
         VStack {
             ScrollView {
+                    HStack {
+                        Image("applogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 72, height: 72)
+                            .padding(20)
+                        Text(AboutText.appTitle)
+                            .font(.largeTitle)
+                    }
+                    .padding(50)
+                
                 VStack(alignment: .leading) {
                     AboutBlockView(title:  AboutText.awarenessTitle,
                                    text: AboutText.awarenessText,
