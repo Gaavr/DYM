@@ -6,7 +6,7 @@
 //
 
 enum MotivationIntensity: String, CaseIterable {
+    case any = "Any"
     case positive = "Positive"
     case negative = "Negative"
-    case all = "All"
 }

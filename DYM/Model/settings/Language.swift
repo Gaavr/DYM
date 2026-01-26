@@ -6,6 +6,6 @@
 //
 
 enum AppLanguage: String, CaseIterable {
-    case ru = "Russian"
     case en = "English"
+    case ru = "Russian"
 }
