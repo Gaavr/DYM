@@ -12,17 +12,21 @@ struct AboutView: View {
     var body: some View {
         VStack {
             ScrollView {
-                    HStack {
-                        Image("applogo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 72, height: 72)
-                            .cornerRadius(16)
-                            .padding(20)
-                        Text(AboutText.appTitle)
-                            .font(.largeTitle)
-                    }
-                    .padding(50)
+                
+                HStack {
+                    Image("applogo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 72, height: 72)
+                        .cornerRadius(16)
+                        .padding(20)
+                    Text(AboutText.appTitle)
+                        .font(.largeTitle)
+                }
+                
+                Divider()
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 30)
                 
                 VStack(alignment: .leading) {
                     AboutBlockView(title:  AboutText.awarenessTitle,
@@ -38,6 +42,7 @@ struct AboutView: View {
                                    text: AboutText.howItWorksText,
                                    systemImage: AboutText.howItWorksSymbol)
                 }
+                
             }
         }
         .toolbar {

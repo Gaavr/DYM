@@ -14,7 +14,7 @@ struct Poster: Identifiable {
     var url: URL
     var posterType: PosterType
     
-    var categoryId: Category.ID?
+//    var categoryId: Category.ID?
     var isLiked: Bool = false
     
     let createdAt: Date

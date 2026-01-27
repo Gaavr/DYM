@@ -32,6 +32,8 @@ struct AboutBlockView: View {
             }
         }
         .padding(.horizontal, 20)
+        Divider()
+            .padding(30)
     }
 }
 

@@ -9,8 +9,15 @@ import SwiftUI
 
 struct CategoryView: View {
     var body: some View {
-        ZStack {
+        VStack {
             Image(systemName: "globe")
+        }
+        .toolbar {
+            ToolbarItem {
+                NavigationLink(destination: CreateCategoryView()) {
+                    Image(systemName: "plus")
+                }
+            }
         }
     }
 }
