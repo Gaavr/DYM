@@ -5,6 +5,7 @@
 //  Created by Andrei Gavrilenko on 21.11.2025.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct DYMApp: App {
         WindowGroup {
             RootView()
         }
+        .modelContainer(for: Category.self)
     }
 }
