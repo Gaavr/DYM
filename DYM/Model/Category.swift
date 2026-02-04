@@ -17,6 +17,9 @@ class Category {
     var icon: String
     var created: Date
     
+    @Relationship(deleteRule: .cascade)
+    var posters: [Poster] = []
+    
     init(name: String, categoryDescription: String, color: Color, icon: String) {
         self.id = UUID()
         self.name = name

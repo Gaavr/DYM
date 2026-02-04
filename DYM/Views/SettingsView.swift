@@ -20,7 +20,7 @@ struct SettingsView: View {
         Form {
             Section("Content") {
                 NavigationLink {
-                    CategoryView()
+                    ListOfCategoriesView()
                 } label: {
                     Label("Categories", systemImage: "list.dash")
                 }
