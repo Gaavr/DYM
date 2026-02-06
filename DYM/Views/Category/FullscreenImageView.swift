@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct FullscreenImageView: View {
-    let imageName: String
+    let poster: Poster
     @State private var showDeleteDialog = false
 
     var body: some View {
         ZStack {
 //            Color.black.ignoresSafeArea()
-            Image(imageName)
+            poster.image
                 .resizable()
                 .scaledToFit()
         }
@@ -41,8 +41,4 @@ struct FullscreenImageView: View {
         }
         
     }
-}
-
-#Preview {
-    FullscreenImageView(imageName: "img1")
 }

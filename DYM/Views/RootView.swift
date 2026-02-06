@@ -5,32 +5,97 @@
 //  Created by Andrei Gavrilenko on 21.11.2025.
 //
 
+import SwiftData
 import SwiftUI
 
 struct RootView: View {
     
+    @AppStorage("didSeedMotivation") private var didSeedMotivation = false
+    @Environment(\.modelContext)
+private var modelContext: ModelContext
+    
+    enum TabId: Hashable {
+        case main, about, settings
+    }
+    
+    @State private var selectedTab: TabId = .main
+    
+    @State var showAddSheet: Bool = false
     
     var body: some View {
         NavigationStack {
-                TabView {
-                    Tab("DYM", systemImage: "brain") {
-                        MainView()
-                    }
-                    Tab("About", systemImage: "info.circle") {
-                        AboutView()
-                    }
-                    Tab("Settings", systemImage: "gearshape.fill") {
-                        SettingsView()
-                            .labelStyle(.titleAndIcon) //TODO: Костыль?
-                    }
-//                  TODO: Говорят нельзя юзать роль поиск чтобы отделить кнопку добавления https://developer.apple.com/design/human-interface-guidelines/tab-bars
-                    Tab("Add", systemImage: "plus", role: .search ) {
-                        
+            TabView(selection: $selectedTab) {
+                Tab("About", systemImage: "info.circle", value: TabId.about) { AboutView() }
+                Tab("DYM", systemImage: "brain", value: TabId.main) {
+                    MainView()
+                }
+                Tab("Settings", systemImage: "gearshape.fill", value: TabId.settings) {
+                    SettingsView()
+                        .labelStyle(.titleAndIcon) //TODO: Костыль?
+                }
+            }
+            .toolbar {
+                if (selectedTab == .main) {
+                    ToolbarItem {
+                        Button {
+                            showAddSheet = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .sheet(isPresented: $showAddSheet) {
+                            AddPosterSheet()
+                        }
                     }
                 }
-                .labelStyle(.iconOnly)
+            }
+            .labelStyle(.iconOnly)
+            
+        }
+        .onAppear {
+            if !didSeedMotivation {
+                seedMotivationCategory(context: modelContext)
+                didSeedMotivation = true
+            }
         }
         .preferredColorScheme(.light)
+    }
+    
+    func seedMotivationCategory(context: ModelContext) {
+        let category = Category(
+            name: "Motivation",
+            categoryDescription: "Default motivation posters",
+            color: .blue,
+            icon: "🔥"
+        )
+        
+        let defaultCategory = Category(
+            name: "Common",
+            categoryDescription: "Images without specific theme",
+            color: .gray,
+            icon: "♾️"
+        )
+
+        let imageNames = (1...16).map { "img\($0)" }
+
+        for name in imageNames {
+            guard
+                let uiImage = UIImage(named: name),
+                let data = uiImage.pngData()
+            else { continue }
+
+            let poster = Poster(
+                name: name,
+                imageData: data,
+                posterType: .image,
+                category: category
+            )
+
+            category.posters.append(poster)
+            context.insert(poster)
+        }
+
+        context.insert(category)
+        context.insert(defaultCategory)
     }
 }
 

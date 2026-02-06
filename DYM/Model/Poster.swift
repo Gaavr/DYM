@@ -1,12 +1,12 @@
 //
-//  Image.swift
-//  DYM
+//  Image.swift//  DYM
 //
 //  Created by Andrei Gavrilenko on 20.12.2025.
 //
 
 import SwiftData
 import Foundation
+import SwiftUI
 
 @Model
 class Poster {
@@ -32,5 +32,16 @@ class Poster {
         self.posterType = posterType
         self.category = category
         self.createdAt = createdAt
+    }
+}
+
+extension Poster {
+    var image: Image {
+        if let data = imageData,
+           let uiImage = UIImage(data: data) {
+            return Image(uiImage: uiImage)
+        } else {
+            return Image(systemName: "photo")
+        }
     }
 }

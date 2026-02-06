@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        Image("1_discipline_09_ru")
+        Image("img9")
             .resizable()
             .scaledToFit()
     }
