@@ -22,6 +22,9 @@ private var modelContext: ModelContext
     
     @State var showAddSheet: Bool = false
     
+    @Query var categories: [Category]
+    
+    
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
@@ -37,13 +40,10 @@ private var modelContext: ModelContext
             .toolbar {
                 if (selectedTab == .main) {
                     ToolbarItem {
-                        Button {
-                            showAddSheet = true
+                        NavigationLink {
+                            AddPosterView(categories: categories)
                         } label: {
                             Image(systemName: "plus")
-                        }
-                        .sheet(isPresented: $showAddSheet) {
-                            AddPosterSheet()
                         }
                     }
                 }

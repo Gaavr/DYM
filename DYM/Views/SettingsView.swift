@@ -82,11 +82,17 @@ struct SettingsView: View {
                 }
             }
             Section("Warning") {
-                //TODO: Странно нажимается кнопка, выяснить почему
-                Button("Delete all data") {
-                    print("Удаление данных")
+                Button {
+                    
+                } label: {
+                    Label("Reset Settings", systemImage: "arrow.counterclockwise")
                 }
-                .frame(maxWidth: .infinity)
+                
+                Button {
+                    
+                } label: {
+                    Label("Delete all data", systemImage: "trash")
+                }
                 .font(.headline)
                 .foregroundStyle(.red)
             }
