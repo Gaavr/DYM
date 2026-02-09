@@ -72,7 +72,8 @@ private var modelContext: ModelContext
             name: "Common",
             categoryDescription: "Images without specific theme",
             color: .gray,
-            icon: "♾️"
+            icon: "♾️",
+            isProtected: true
         )
 
         let imageNames = (1...16).map { "img\($0)" }
@@ -84,8 +85,8 @@ private var modelContext: ModelContext
             else { continue }
 
             let poster = Poster(
-                name: name,
                 imageData: data,
+                motivationIntensity: MotivationIntensity.any,
                 posterType: .image,
                 category: category
             )

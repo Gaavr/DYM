@@ -14,21 +14,23 @@ class Poster {
     var name: String
     @Attribute(.externalStorage)
     var imageData: Data?
+    var motivationIntensity: MotivationIntensity
     var posterType: PosterType
     var category: Category
     var createdAt: Date
 
     init(
-        name: String,
+        id: UUID = UUID(),
         imageData: Data?,
+        motivationIntensity: MotivationIntensity,
         posterType: PosterType,
         category: Category,
-        id: UUID = UUID(),
         createdAt: Date = .now
     ) {
         self.id = id
-        self.name = name
+        self.name = "Poster_\(Date.now.formatted(.iso8601))_\(UUID().uuidString)"
         self.imageData = imageData
+        self.motivationIntensity = motivationIntensity
         self.posterType = posterType
         self.category = category
         self.createdAt = createdAt

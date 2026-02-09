@@ -15,17 +15,19 @@ class Category {
     var categoryDescription: String
     var color: String
     var icon: String
+    var isProtected: Bool
     var created: Date
     
     @Relationship(deleteRule: .cascade)
     var posters: [Poster] = []
     
-    init(name: String, categoryDescription: String, color: Color, icon: String) {
+    init(name: String, categoryDescription: String, color: Color, icon: String, isProtected: Bool = false) {
         self.id = UUID()
         self.name = name
         self.categoryDescription = categoryDescription
         self.color = color.toString()
         self.icon = icon
+        self.isProtected = isProtected
         self.created = Date.now
     }
     
