@@ -59,7 +59,7 @@ struct RootView: View {
                     }
                     ToolbarItem {
                         NavigationLink {
-                            AddPosterView(categories: categories)
+                            AddPosterView(categories: categories, defaultCategory: chosenCategory)
                         } label: {
                             Image(systemName: "plus")
                         }

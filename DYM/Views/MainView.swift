@@ -11,24 +11,24 @@ import SwiftData
 struct MainView: View {
     
     @Binding var category: Category?
-    
+
     @Query private var posters: [Poster]
     
     @State private var virtualPosition: Int? = nil
     private let virtualSlotsAmount = 10000
     private let recenterTriggerDistance = 1500
-
+    
     init(category: Binding<Category?>) {
         self._category = category
         let selectedID = category.wrappedValue?.id
-
+        
         _posters = Query(
             filter: #Predicate<Poster> { poster in
                 selectedID != nil && poster.category.id == selectedID!
             }
         )
     }
-
+    
     var body: some View {
         Group {
             if category == nil {
@@ -41,9 +41,10 @@ struct MainView: View {
                         ForEach(0..<virtualSlotsAmount, id: \.self) { vIndex in
                             posters[wrappedIndex(for: vIndex, itemCount: posters.count)].image
                                 .resizable()
-                                  .scaledToFit()
-                                  .containerRelativeFrame(.horizontal)
-                                  .scrollTargetLayout()
+                                .scaledToFit() //TODO: надо дать выбор пользователю
+                                .containerRelativeFrame(.horizontal)
+                                .scrollTargetLayout()
+                            
                         }
                     }
                 }
@@ -66,7 +67,7 @@ struct MainView: View {
             resetToCenter()
         }
     }
-
+    
     // MARK: Для бесконечного скрола
     private func resetToCenter() {
         guard posters.count > 0 else {
@@ -79,16 +80,16 @@ struct MainView: View {
             virtualPosition = center
         }
     }
-
+    
     private func recenterIfNeeded(currentVirtualIndex: Int) {
         let center = virtualSlotsAmount / 2
-
+        
         if currentVirtualIndex < recenterTriggerDistance || currentVirtualIndex > (virtualSlotsAmount - recenterTriggerDistance) {
             //какой реальный постер сейчас
             let real = wrappedIndex(for: currentVirtualIndex, itemCount: posters.count)
             //переносим в центр, сохранив реальный индекс
             let recentered = center + real
-
+            
             if recentered != currentVirtualIndex {
                 withTransaction(Transaction(animation: nil)) {
                     virtualPosition = recentered
@@ -96,16 +97,16 @@ struct MainView: View {
             }
         }
     }
-
+    
     //получаем реальный индекс из виртуального
     private func wrappedIndex(for rawIndex: Int, itemCount: Int) -> Int {
         precondition(itemCount > 0, "itemCount must be > 0")
-
+        
         let remainder = rawIndex % itemCount
         let nonNegativeIndex = remainder >= 0
-            ? remainder
-            : remainder + itemCount
-
+        ? remainder
+        : remainder + itemCount
+        
         return nonNegativeIndex
     }
 }
@@ -118,6 +119,6 @@ struct MainView: View {
         icon: "♾️",
         isProtected: true
     )
-
+    
     MainView(category: .constant(common))
 }

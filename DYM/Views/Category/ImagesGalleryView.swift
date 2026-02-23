@@ -49,7 +49,7 @@ struct ImagesGalleryView: View {
                     Text("Add your first poster")
                 } actions: {
                     NavigationLink {
-                        AddPosterView(categories: categories)
+                        AddPosterView(categories: categories, defaultCategory: currentCategory)
                     } label: {
                         Label("Add", systemImage: "photo.badge.plus")
                     }
@@ -85,7 +85,7 @@ struct ImagesGalleryView: View {
             if (!posters.isEmpty) {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        AddPosterView(categories: categories)
+                        AddPosterView(categories: categories, defaultCategory: currentCategory)
                     } label: {
                         Image(systemName: "plus")
                     }

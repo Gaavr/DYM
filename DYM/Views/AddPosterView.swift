@@ -34,11 +34,13 @@ struct AddPosterView: View {
     
     @Environment(\.modelContext) private var modelContext
     
-    init(categories: [Category]) {
+    init(categories: [Category], defaultCategory: Category? = nil) {
         self.categories = categories
-        _choosenCategory = State(
-                initialValue: categories.first { $0.name == "Common" }
-            )
+
+        let common = categories.first { $0.name == "Common" }
+        let initial = defaultCategory ?? common
+
+        _choosenCategory = State(initialValue: initial)
     }
     
     var body: some View {
@@ -53,7 +55,7 @@ struct AddPosterView: View {
             }
             .onChange(of: selectedPhoto) { _, newValue in
                 guard let newValue else { return }
-
+                
                 Task {
                     imageData = try? await newValue.loadTransferable(type: Data.self)
                 }
@@ -66,7 +68,7 @@ struct AddPosterView: View {
                                 Text(tone.rawValue).tag(tone)
                             }
                         }
-
+                        
                         Picker("Category", selection: $choosenCategory) {
                             ForEach(categories) { category in
                                 Text(category.name)
@@ -78,16 +80,16 @@ struct AddPosterView: View {
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Cancel") {
-                                print("Галя отмена")
                                 selectedPhoto = nil }
                         }
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Save") {
-                                Task {
-                                    savePoster(imageData: imageData, motivationIntensity: tone, posterType: .image, category: choosenCategory!)
-
-                                }
-                              
+                                guard let category = choosenCategory else { return }
+                                savePoster(
+                                    imageData: imageData,
+                                    motivationIntensity: tone,
+                                    posterType: .image,
+                                    category: category)
                                 selectedPhoto = nil
                             }
                         }
