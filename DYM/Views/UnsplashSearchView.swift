@@ -16,5 +16,7 @@ struct UnsplashSearchView: View {
 }
 
 #Preview {
-    UnsplashSearchView()
+    NavigationStack {
+        UnsplashSearchView()
+    }
 }

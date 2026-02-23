@@ -19,7 +19,6 @@ struct RootView: View {
     }
     
     @State private var selectedTab: TabId = .main
-    
     @State var showAddSheet: Bool = false
     @Query var categories: [Category]
     @State private var chosenCategory: Category?

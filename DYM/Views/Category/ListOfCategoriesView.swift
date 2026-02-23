@@ -14,7 +14,6 @@ struct ListOfCategoriesView: View {
     
     //TODO: Сделать сортировку и вынести дефолтную категорию вниз
     @Query var categories: [Category]
-    
     @State private var selectedCategory: Category?
     @State private var showProtectedAlert = false
     
@@ -43,7 +42,6 @@ struct ListOfCategoriesView: View {
                                 .tint(.blue)
                             }
                         }
-                        
                 }
             }
             .listStyle(.plain)
