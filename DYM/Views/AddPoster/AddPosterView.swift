@@ -65,7 +65,7 @@ struct AddPosterView: View {
                 BigActionButton(title: "Unsplash", systemImage: "square.and.arrow.down")
             }
         }
-        .sheet(isPresented: $isSaveSheetPresented) {
+        .sheet(isPresented: $isSaveSheetPresented, onDismiss: { imageData = nil }) {
             SavePosterSheetView(
                 categories: categories,
                 isReady: imageData != nil,

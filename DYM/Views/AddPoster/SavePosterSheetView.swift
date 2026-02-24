@@ -51,8 +51,3 @@ struct SavePosterSheetView: View {
         }
     }
 }
-
-enum NewPosterMode {
-    case image
-    case quote
-}
