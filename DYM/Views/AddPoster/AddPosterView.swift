@@ -52,7 +52,7 @@ struct AddPosterView: View {
                 }
             }
             NavigationLink {
-                AddQuoteView()
+//                AddQuoteView()
             } label: {
                 BigActionButton(title: "Write a quote", systemImage: "quote.bubble")
             }
