@@ -15,18 +15,7 @@ struct AddPosterView: View {
     
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State private var imageData: Data?
-    var isSheetPresented: Binding<Bool> {
-        Binding(
-            get: {
-                return selectedPhoto != nil
-            },
-            set: { newValue in
-                if newValue == false {
-                    selectedPhoto = nil
-                }
-            }
-        )
-    }
+    @State private var isSaveSheetPresented = false
     
     var categories: [Category]
     @State private var choosenCategory: Category?
@@ -36,10 +25,10 @@ struct AddPosterView: View {
     
     init(categories: [Category], defaultCategory: Category? = nil) {
         self.categories = categories
-
+        
         let common = categories.first { $0.name == "Common" }
         let initial = defaultCategory ?? common
-
+        
         _choosenCategory = State(initialValue: initial)
     }
     
@@ -57,46 +46,11 @@ struct AddPosterView: View {
                 guard let newValue else { return }
                 
                 Task {
-                    imageData = try? await newValue.loadTransferable(type: Data.self)
+                    let data = try? await newValue.loadTransferable(type: Data.self)
+                    presentSaveSheet(with: data)
+                    selectedPhoto = nil
                 }
             }
-            .sheet(isPresented: isSheetPresented) {
-                NavigationStack {
-                    Form {
-                        Picker("Message style", selection: $tone) {
-                            ForEach(MotivationIntensity.allCases, id: \.self) { tone in
-                                Text(tone.rawValue).tag(tone)
-                            }
-                        }
-                        
-                        Picker("Category", selection: $choosenCategory) {
-                            ForEach(categories) { category in
-                                Text(category.name)
-                                    .tag(Optional(category))
-                            }
-                        }
-                    }
-                    .navigationTitle("New poster")
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                selectedPhoto = nil }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Save") {
-                                guard let category = choosenCategory else { return }
-                                savePoster(
-                                    imageData: imageData,
-                                    motivationIntensity: tone,
-                                    posterType: .image,
-                                    category: category)
-                                selectedPhoto = nil
-                            }
-                        }
-                    }
-                }
-            }
-            
             NavigationLink {
                 AddQuoteView()
             } label: {
@@ -104,10 +58,30 @@ struct AddPosterView: View {
             }
             
             NavigationLink {
-                UnsplashSearchView()
+                AddUnsplashView { downloadedData in
+                    presentSaveSheet(with: downloadedData)
+                }
             } label: {
                 BigActionButton(title: "Unsplash", systemImage: "square.and.arrow.down")
             }
+        }
+        .sheet(isPresented: $isSaveSheetPresented) {
+            SavePosterSheetView(
+                categories: categories,
+                isReady: imageData != nil,
+                isPresented: $isSaveSheetPresented,
+                chosenCategory: $choosenCategory,
+                tone: $tone,
+                onSave: { category, tone in
+                    savePoster(
+                        imageData: imageData,
+                        motivationIntensity: tone,
+                        posterType: .image,
+                        category: category
+                    )
+                    imageData = nil
+                }
+            )
         }
         .buttonStyle(.plain)
         .navigationTitle(Text("Add poster"))
@@ -125,6 +99,11 @@ struct AddPosterView: View {
         modelContext.insert(poster)
         
         dismiss()
+    }
+    
+    private func presentSaveSheet(with data: Data?) {
+        imageData = data
+        isSaveSheetPresented = true
     }
 }
 

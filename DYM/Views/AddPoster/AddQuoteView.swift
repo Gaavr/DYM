@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct AddQuoteView: View {
+    
+    @State private var quoteText: String = ""
+    
     var body: some View {
-        Text("Quote screen")
-            .navigationTitle("Quote")
-            .navigationBarTitleDisplayMode(.inline)
+        Form {
+            TextEditor(text: $quoteText)
+        }
     }
+}
+
+#Preview  {
+    AddQuoteView()
 }

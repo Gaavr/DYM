@@ -9,5 +9,5 @@ import Foundation
 
 enum PosterType: String, Codable {
     case image
-    case text
+    case quote
 }
