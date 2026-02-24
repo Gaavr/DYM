@@ -11,7 +11,7 @@ import SwiftData
 struct MainView: View {
     
     @Binding var category: Category?
-
+    
     @Query private var posters: [Poster]
     
     @State private var virtualPosition: Int? = nil

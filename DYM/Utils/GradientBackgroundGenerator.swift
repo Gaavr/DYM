@@ -15,8 +15,11 @@ struct GradientBackgroundGenerator {
         secondary1: Color,
         secondary2: Color,
         kind: GradientKind,
-        direction: GradientDirection
+        direction: GradientDirection,
+        radialStart: CGFloat = 20,
+        radialEnd: CGFloat = 420
     ) -> AnyView {
+        
         let colors = [secondary1, base, secondary2]
         let gradient = Gradient(colors: colors)
         
@@ -35,8 +38,8 @@ struct GradientBackgroundGenerator {
                 RadialGradient(
                     gradient: gradient,
                     center: .center,
-                    startRadius: 20,
-                    endRadius: 420
+                    startRadius: radialStart,
+                    endRadius: radialEnd
                 )
             )
             
@@ -50,6 +53,7 @@ struct GradientBackgroundGenerator {
         }
     }
     
+    // MARK: - Random helpers
     static func randomSecondaryPair() -> (Color, Color) {
         let presets: [(Color, Color)] = [
             (.purple, .black),
@@ -59,7 +63,6 @@ struct GradientBackgroundGenerator {
             (.pink, .indigo),
             (.teal, .black)
         ]
-        
         return presets.randomElement() ?? (.purple, .black)
     }
     
@@ -69,6 +72,13 @@ struct GradientBackgroundGenerator {
     
     static func randomDirection() -> GradientDirection {
         GradientDirection.allCases.randomElement() ?? .topLeadingToBottomTrailing
+    }
+    
+    static func randomRadialRadii(for size: CGSize) -> (start: CGFloat, end: CGFloat) {
+        let minSide = min(size.width, size.height)
+        let start = CGFloat.random(in: minSide * 0.01 ... minSide * 0.06)
+        let end   = CGFloat.random(in: minSide * 0.90 ... minSide * 1.35)
+        return (start, end)
     }
 }
 

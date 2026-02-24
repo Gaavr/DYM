@@ -15,37 +15,58 @@ struct QuotePosterPreviewView: View {
     let secondary2: Color
     let kind: GradientKind
     let direction: GradientDirection
+    let radialStart: CGFloat
+    let radialEnd: CGFloat
+    var cornerRadius: CGFloat = 20
 
     var body: some View {
-        ZStack {
-            GradientBackgroundGenerator.makeView(
-                base: base,
-                secondary1: secondary1,
-                secondary2: secondary2,
-                kind: kind,
-                direction: direction
-            )
+        GeometryReader { geo in
+            let w = geo.size.width
+            let quoteFont = max(28, w * 0.06)
+            let authorFont = max(16, w * 0.035)
 
-            VStack {
-                Spacer()
+            ZStack {
+                if kind == .radial {
+                        RadialGradient(
+                            gradient: Gradient(colors: [base, secondary1, secondary2]),
+                            center: .center,
+                            startRadius: radialStart,
+                            endRadius: radialEnd
+                        )
+                        .ignoresSafeArea()
+                    } else {
+                        GradientBackgroundGenerator.makeView(
+                            base: base,
+                            secondary1: secondary1,
+                            secondary2: secondary2,
+                            kind: kind,
+                            direction: direction
+                        )
+                        .ignoresSafeArea()
+                    }
 
-                Text("“\(text.isEmpty ? "Your quote will appear here" : text)”")
-                    .font(.system(size: 28, weight: .bold))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 24)
+                VStack {
+                    Spacer()
 
-                Spacer()
+                    Text("“\(text.isEmpty ? "Your quote will appear here" : text)”")
+                        .font(.system(size: quoteFont, weight: .bold))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, w * 0.08)
+                        .minimumScaleFactor(0.6)
 
-                if !author.isEmpty {
-                    Text("— \(author)")
-                        .font(.headline)
-                        .foregroundColor(.white.opacity(0.9))
-                        .padding(.bottom, 24)
+                    Spacer()
+
+                    if !author.isEmpty {
+                        Text("— \(author)")
+                            .font(.system(size: authorFont, weight: .semibold))
+                            .foregroundColor(.white.opacity(0.9))
+                            .padding(.bottom, w * 0.06)
+                    }
                 }
             }
+            .frame(width: geo.size.width, height: geo.size.height)
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
         }
-        .frame(height: 600)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
