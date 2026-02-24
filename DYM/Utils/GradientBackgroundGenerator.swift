@@ -32,7 +32,6 @@ struct GradientBackgroundGenerator {
                     endPoint: direction.endPoint
                 )
             )
-            
         case .radial:
             return AnyView(
                 RadialGradient(
@@ -42,7 +41,6 @@ struct GradientBackgroundGenerator {
                     endRadius: radialEnd
                 )
             )
-            
         case .angular:
             return AnyView(
                 AngularGradient(

@@ -95,14 +95,9 @@ struct AddQuoteView: View {
                             .padding(15)
                     }
                 }
-                
             }
             .navigationTitle("New quote")
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
-                }
-                
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         saveQuotePoster()

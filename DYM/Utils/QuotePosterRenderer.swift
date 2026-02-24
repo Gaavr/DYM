@@ -16,7 +16,7 @@ enum QuotePosterRenderer {
         base: Color,
         secondary1: Color,
         secondary2: Color,
-        kind: GradientKind,
+        kind: GradientKind, 
         direction: GradientDirection,
         radialStart: CGFloat,
         radialEnd: CGFloat

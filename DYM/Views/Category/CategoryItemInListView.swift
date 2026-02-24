@@ -12,32 +12,35 @@ struct CategoryItemInListView: View {
     let category: Category
     
     var body: some View {
-        HStack {
+        HStack(spacing: 12) {
             ZStack {
-                RoundedRectangle(cornerRadius: 17)
+                Circle()
                     .fill(category.getColor())
+                    .frame(width: 32, height: 32)
+
                 Text(category.icon)
-                    .font(.largeTitle)
+                    .font(.system(size: 16, weight: .semibold))
             }
-            .aspectRatio(1, contentMode: .fit)
-            VStack {
+
+            VStack(alignment: .leading, spacing: 2) {
                 Text(category.name)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .foregroundStyle(.black)
-                    .font(.headline)
-                Text(category.categoryDescription)
-                    .foregroundStyle(.secondary)
-                    .font(.caption)
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+
+                if !category.categoryDescription.isEmpty {
+                    Text(category.categoryDescription)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+                
             }
+
+            Spacer(minLength: 0)
         }
-        .frame(height: 50)
         .padding(.horizontal, 10)
-        .padding(.vertical, 10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(Color(category.getColor()), lineWidth: 3)
-            
-        )
+        .contentShape(Rectangle())
     }
 }
 

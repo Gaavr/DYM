@@ -5,11 +5,11 @@
 //  Created by Andrei Gavrilenko on 24.02.2026.
 //
 
-
 import SwiftUI
 
 struct SavePosterSheetView: View {
     let categories: [Category]
+    let imageData: Data?
     let isReady: Bool
     
     @Binding var isPresented: Bool
@@ -21,16 +21,33 @@ struct SavePosterSheetView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Message style", selection: $tone) {
-                    ForEach(MotivationIntensity.allCases, id: \.self) { t in
-                        Text(t.rawValue).tag(t)
+                Section {
+                    Picker("Message style", selection: $tone) {
+                        ForEach(MotivationIntensity.allCases, id: \.self) { t in
+                            Text(t.rawValue).tag(t)
+                        }
+                    }
+                    Picker("Category", selection: $chosenCategory) {
+                        ForEach(categories) { c in
+                            Text(c.name).tag(Optional(c))
+                        }
                     }
                 }
-                
-                Picker("Category", selection: $chosenCategory) {
-                    ForEach(categories) { c in
-                        Text(c.name).tag(Optional(c))
+                Section("Preview") {
+                    Group {
+                        if let imageData, let uiImage = UIImage(data: imageData) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(height: 260)
+                                .clipped()
+                                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        } else {
+                            ContentUnavailableView("No image", systemImage: "photo")
+                                .frame(height: 160)
+                        }
                     }
+                    .frame(maxWidth: .infinity)
                 }
             }
             .navigationTitle("New poster")

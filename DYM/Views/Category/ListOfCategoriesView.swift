@@ -21,29 +21,30 @@ struct ListOfCategoriesView: View {
         VStack {
             List {
                 ForEach(categories) { category in
-                    CategoryItemInListView(category: category)
-                        .onTapGesture {
-                            selectedCategory = category
-                        }
-                        .swipeActions(edge: .trailing) {
-                            if (!category.isProtected) {
-                                Button(role: .destructive) {
-                                    deleteCategory(category)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                                .disabled(category.isProtected)
-                                NavigationLink {
-                                    CategoryDetailView(category: category)
-                                } label: {
-                                    Label("Edit", systemImage: "pencil")
-                                }
-                                .disabled(category.isProtected)
-                                .tint(.blue)
+                    NavigationLink {
+                        ImagesGalleryView(category: category, categories: categories)
+                    } label: {
+                        CategoryItemInListView(category: category)
+                    }
+                    .swipeActions(edge: .trailing) {
+                        if !category.isProtected {
+                            Button(role: .destructive) {
+                                deleteCategory(category)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
                             }
+
+                            NavigationLink {
+                                CategoryDetailView(category: category)
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            .tint(.blue)
                         }
+                    }
                 }
             }
+            .listStyle(.plain)
             .listStyle(.plain)
         }
         .navigationBarTitle("Categories")

@@ -23,6 +23,7 @@ struct AddPosterView: View {
     
     @Environment(\.modelContext) private var modelContext
     
+    
     init(categories: [Category], defaultCategory: Category? = nil) {
         self.categories = categories
         
@@ -74,6 +75,7 @@ struct AddPosterView: View {
         .sheet(isPresented: $isSaveSheetPresented, onDismiss: { imageData = nil }) {
             SavePosterSheetView(
                 categories: categories,
+                imageData: imageData,
                 isReady: imageData != nil,
                 isPresented: $isSaveSheetPresented,
                 chosenCategory: $choosenCategory,
