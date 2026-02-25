@@ -40,7 +40,7 @@ struct AddPosterView: View {
                 matching: .images,
                 photoLibrary: .shared()
             ) {
-                BigActionButton(title: "Photo Library", systemImage: "photo.on.rectangle.angled"
+                BigActionButton(title: "poster.photoLibrary", systemImage: "photo.on.rectangle.angled"
                 )
             }
             .onChange(of: selectedPhoto) { _, newValue in
@@ -61,7 +61,7 @@ struct AddPosterView: View {
                     onFinished: { dismiss() }
                 )
             } label: {
-                BigActionButton(title: "Write a quote", systemImage: "quote.bubble")
+                BigActionButton(title: "quote.write", systemImage: "quote.bubble")
             }
             
             NavigationLink {
@@ -92,9 +92,8 @@ struct AddPosterView: View {
             )
         }
         .buttonStyle(.plain)
-        .navigationTitle(Text("Add poster"))
-        .onAppear { print("AddPosterView APPEAR") }
-        .onDisappear { print("AddPosterView DISAPPEAR") }
+        .navigationTitle(Text("poster.addPoster"))
+
     }
     
     func savePoster(imageData: Data?, motivationIntensity: MotivationIntensity, posterType: PosterType, category: Category) {
@@ -116,7 +115,7 @@ struct AddPosterView: View {
 }
 
 struct BigActionButton: View {
-    let title: String
+    let title: LocalizedStringKey
     let systemImage: String
     
     var body: some View {

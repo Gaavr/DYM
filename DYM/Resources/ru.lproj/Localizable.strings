@@ -1,0 +1,91 @@
+/* 
+  Localizable.strings
+  DYM
+
+  Created by Andrei Gavrilenko on 25.02.2026.
+  
+*/
+
+/* Settings */
+"settings.content" = "Контент";
+"settings.categories" = "Категории";
+"settings.randomOrder" = "Постеры в случайном порядке";
+"settings.messageStyle" = "Стиль постеров";
+"settings.messageStyle.footer" = "Positive — про награды и долгосрочные выгоды. Negative — про риски и последствия.";
+"settings.appearance" = "Внешний вид";
+"settings.theme" = "Тема";
+"settings.theme.System" = "Системная";
+"settings.theme.Light" = "Светлая";
+"settings.theme.Dark" = "Тёмная";
+"settings.system" = "Система";
+"settings.language" = "Язык";
+"settings.actionButton" = "Action button";
+"settings.actionButton.footer" = "Одно нажатие — и вы возвращаете контроль.\nНастройки → Action Button → DYM.";
+"settings.data" = "Данные";
+"settings.exportData" = "Экспорт данных";
+"settings.feedback" = "Обратная связь";
+"settings.rateApp" = "Оцените приложение";
+"settings.shareApp" = "Поделиться приложением";
+"settings.support" = "Поддержка";
+"settings.buyCoffee" = "Поддержать проект";
+"settings.warning" = "Сброс данных";
+"settings.resetSettings" = "Сбросить настройки";
+"settings.deleteAllData" = "Удалить все данные";
+"settings.tapToChangeBackground" = "Нажмите, чтобы сменить фон";
+"settings.language.footer" = "Измените язык приложения в Настройки → DYM → Язык.";
+
+
+/* About */
+"about.appTitle" = "Dominate Your Mind";
+"about.awareness.title" = "Ты — не твои мысли";
+"about.awareness.text" = "Ум генерирует мысли автоматически.\nБольшинство из них возникает без намерения и выбора.\n\nМысли — это события, а не команды.\nТы не обязан им следовать.\n\nОсознанность начинается в тот момент,\nкогда ты замечаешь,\nчто делает твой ум.";
+"about.interruption.title" = "Выход из автопилота";
+"about.interruption.text" = "Большинство ментальных трудностей происходит на автопилоте.\n\nЭто приложение создаёт осознанную паузу —\nмежду импульсом и реакцией.\n\nИменно в этой паузе появляется выбор.";
+"about.philosophy.title" = "Философия дизайна";
+"about.philosophy.text" = "Простота здесь — намеренная.\n\nМозг глубже обрабатывает меньше информации.\nПоэтому приложение избегает лент, стриков и шума.\n\nКаждый элемент служит одной цели:\nснизить трение между осознанностью и действием.";
+"about.howItWorks.title" = "Как это работает";
+"about.howItWorks.text" = "Вы открываете приложение осознанно.\n\nВы видите одно сообщение.\nОдну идею.\nОдин момент ясности.\n\nБез трекинга.\nБез убеждения.\nБез бесконечной прокрутки.\n\nТолько осознанность — когда она нужна.";
+
+
+"quote.new" = "Новая цитата";
+"quote.preview" = "Предпросмотр";
+"quote.quote" = "Цитата";
+"quote.author" = "Автор";
+"quote.write" = "Записать цитату";
+"quote.example" = "Здесь появится ваша цитата";
+
+"poster.new" = "Новый постер";
+"poster.settings" = "Настройки постера";
+"poster.backgroundSettings" = "Настройки фона";
+"poster.baseColor" = "Базовый цвет";
+"poster.photoLibrary" = "Фотогалерея";
+"poster.addPoster" = "Добавить постер";
+"poster.noImage" = "Нет изображения";
+"poster.delete" = "Удалить фото?";
+"poster.chooseWhatDo" = "Выберите, что сделать с этим фото";
+"poster.noPosters" = "Нет постеров";
+"poster.dobavYje" = "Добавьте первый постер";
+
+
+"category.category" = "Категория";
+"category.addCategory" = "Добавить категорию";
+"category.remove" = "Удалить из категории";
+"category.delete" = "Удалить с устройства";
+"category.choose" = "Выберите категорию";
+"category.defaultDescription" = "Изображения без определённой темы";
+
+
+"common.messageStyle" = "Стиль сообщений";
+"common.save" = "Сохранить";
+"common.name" = "Название";
+"common.description" = "Описание";
+"common.color" = "Цвет";
+"common.icon" = "Иконка";
+"common.cancel" = "Отмена";
+"common.add" = "Добавить";
+"common.delete" = "Удалить";
+"common.edit" = "Редактировать";
+"common.common" = "Общее";
+
+
+"alert.notAvailable" = "Действие недоступно";

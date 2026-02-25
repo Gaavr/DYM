@@ -30,10 +30,10 @@ struct CategoryDetailView: View {
                 CategoryItemInListView(category: Category(name: name, categoryDescription: desctiption, color: color, icon: icon))
             }
             Section {
-                TextField("Name", text: $name)
-                TextField("Description", text: $desctiption)
-                ColorPicker("Color", selection: $color)
-                TextField("Icon", text: $icon)
+                TextField("common.name", text: $name)
+                TextField("common.description", text: $desctiption)
+                ColorPicker("common.color", selection: $color)
+                TextField("common.icon", text: $icon)
             }
             Section {
                 Button {
@@ -53,7 +53,7 @@ struct CategoryDetailView: View {
                     }
                     dismiss()
                 } label: {
-                    Text(category == nil ? "Add category" : "Save")
+                    Text(category == nil ? "category.addCategory" : "common.save")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .foregroundStyle(.primary)
                 }

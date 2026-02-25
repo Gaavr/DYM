@@ -38,25 +38,25 @@ struct FullscreenImageView: View {
                 Image(systemName: "trash")
             }
         }
-        .alert("Delete photo?", isPresented: $showDeleteAlert) {
+        .alert("poster.delete", isPresented: $showDeleteAlert) {
 
             if !isInCommon {
-                Button("Remove from category") {
+                Button("category.remove") {
                     guard let common = commonCategory else { return }
                     poster.category = common
                     dismiss()
                 }
             }
 
-            Button("Delete from device", role: .destructive) {
+            Button("category.delete", role: .destructive) {
                 modelContext.delete(poster)
                 dismiss()
             }
 
-            Button("Cancel", role: .cancel) { }
+            Button("common.cancel", role: .cancel) { }
 
         } message: {
-            Text("Choose what you want to do with this photo.")
+            Text("poster.chooseWhatDo")
         }
     }
 }

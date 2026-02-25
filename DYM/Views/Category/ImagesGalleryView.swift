@@ -44,14 +44,14 @@ struct ImagesGalleryView: View {
         NavigationStack {
             if posters.isEmpty {
                 ContentUnavailableView {
-                    Label("No posters", systemImage: "photo.on.rectangle.angled")
+                    Label("poster.noPosters", systemImage: "photo.on.rectangle.angled")
                 } description: {
-                    Text("Add your first poster")
+                    Text("poster.dobavYje")
                 } actions: {
                     NavigationLink {
                         AddPosterView(categories: categories, defaultCategory: currentCategory)
                     } label: {
-                        Label("Add", systemImage: "photo.badge.plus")
+                        Label("common.add", systemImage: "photo.badge.plus")
                     }
                 }
             } else {

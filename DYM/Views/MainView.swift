@@ -58,9 +58,9 @@ struct MainView: View {
     var body: some View {
         Group {
             if category == nil {
-                ContentUnavailableView("Choose a category", systemImage: "square.grid.2x2")
+                ContentUnavailableView("category.choose", systemImage: "square.grid.2x2")
             } else if displayedPosters.isEmpty {
-                ContentUnavailableView("No posters", systemImage: "photo")
+                ContentUnavailableView("poster.noPosters", systemImage: "photo")
             } else {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 0) {

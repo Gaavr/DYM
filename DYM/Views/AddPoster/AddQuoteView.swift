@@ -41,34 +41,34 @@ struct AddQuoteView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Quote") {
+                Section("quote.quote") {
                     TextEditor(text: $quoteText)
                         .frame(minHeight: 150)
                         .scrollContentBackground(.hidden)
-                    TextField("Author", text: $quoteAuthor)
+                    TextField("quote.author", text: $quoteAuthor)
                 }
-                Section("Poster Settings") {
-                    Picker("Message style", selection: $tone) {
+                Section("poster.settings") {
+                    Picker("common.messageStyle", selection: $tone) {
                         ForEach(MotivationIntensity.allCases, id: \.self) { t in
                             Text(t.rawValue).tag(t)
                         }
                     }
                     
-                    Picker("Category", selection: $chosenCategory) {
+                    Picker("category.category", selection: $chosenCategory) {
                         ForEach(categories) { c in
                             Text(c.name).tag(Optional(c))
                         }
                     }
                 }
-                Section("Background settigns") {
-                    ColorPicker("Base color", selection: $bgColor1, supportsOpacity: false)
+                Section("poster.backgroundSettings") {
+                    ColorPicker("poster.baseColor", selection: $bgColor1, supportsOpacity: false)
                         .onChange(of: bgColor1) { _, _ in
                             let pair = GradientBackgroundGenerator.randomSecondaryPair()
                             bgColor2 = pair.0
                             bgColor3 = pair.1
                         }
                 }
-                Section("Preview") {
+                Section("quote.preview") {
                     QuotePosterPreviewView(
                         text: quoteText,
                         author: quoteAuthor,
@@ -85,7 +85,7 @@ struct AddQuoteView: View {
                     .contentShape(Rectangle())
                     .onTapGesture { generateBackground() }
                     .overlay(alignment: .top) {
-                        Label("Tap to change background", systemImage: "hand.tap")
+                        Label("settings.tapToChangeBackground", systemImage: "hand.tap")
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(.secondary)
                             .padding(.horizontal, 10)
@@ -96,10 +96,10 @@ struct AddQuoteView: View {
                     }
                 }
             }
-            .navigationTitle("New quote")
+            .navigationTitle("quote.new")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
+                    Button("common.save") {
                         saveQuotePoster()
                     }
                     .disabled(isSaveDisabled)

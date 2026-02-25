@@ -1,0 +1,93 @@
+/* 
+  Localizable.strings
+  DYM
+
+  Created by Andrei Gavrilenko on 25.02.2026.
+  
+*/
+
+/* Settings */
+"settings.content" = "Content";
+"settings.categories" = "Categories";
+"settings.randomOrder" = "Random cards order";
+"settings.messageStyle" = "Message style";
+"settings.messageStyle.footer" = "Positive focuses on rewards and long-term gains. Negative highlights risks and consequences.";
+"settings.appearance" = "Appearance";
+"settings.theme" = "Theme";
+"settings.theme.system" = "System";
+"settings.theme.light" = "Light";
+"settings.theme.dark" = "Dark";
+"settings.system" = "System";
+"settings.language" = "Language";
+"settings.actionButton" = "Action Button";
+"settings.actionButton.footer" = "Assign this app to your Action Button to instantly redirect your focus.\nGo to Settings → Action Button to configure it.";
+"settings.data" = "Data";
+"settings.exportData" = "Export data";
+"settings.feedback" = "Feedback";
+"settings.rateApp" = "Rate app";
+"settings.shareApp" = "Share app";
+"settings.support" = "Support";
+"settings.buyCoffee" = "Buy me a coffee";
+"settings.warning" = "Warning";
+"settings.resetSettings" = "Reset Settings";
+"settings.deleteAllData" = "Delete all data";
+"settings.tapToChangeBackground" = "Tap to change background";
+"settings.language.footer" = "Change the app language in Settings → DYM → Language.";
+
+
+/* About */
+"about.appTitle" = "Dominate Your Mind";
+"about.awareness.title" = "You Are Not Your Thoughts";
+"about.awareness.text" = "The mind generates thoughts automatically.\nMost of them arise without intention or choice.\n\nThoughts are events — not commands.\nYou do not have to follow them.\n\nAwareness begins the moment you notice\nwhat your mind is doing.";
+"about.interruption.title" = "Breaking Autopilot";
+"about.interruption.text" = "Most mental struggles happen on autopilot.\n\nThis app creates a deliberate interruption —\na pause between impulse and reaction.\n\nThat pause is where choice becomes possible.";
+"about.philosophy.title" = "Design Philosophy";
+"about.philosophy.text" = "Simplicity is intentional.\n\nThe brain processes less information more deeply.\nThat is why this app avoids feeds, streaks, and noise.\n\nEvery element exists for one purpose:\nto reduce friction between awareness and action.";
+"about.howItWorks.title" = "How It Works";
+"about.howItWorks.text" = "You open the app by choice.\n\nYou see one message.\nOne idea.\nOne moment of clarity.\n\nNo tracking.\nNo persuasion.\nNo endless scrolling.\n\nJust awareness — when you need it.";
+
+
+"quote.new" = "New quote";
+"quote.preview" = "Preview";
+"quote.quote" = "Quote";
+"quote.author" = "Author";
+"quote.write" = "Write a quote";
+"quote.example" = "Your quote will appear here";
+
+"poster.new" = "New poster";
+"poster.settings" = "Poster Settings";
+"poster.backgroundSettings" = "Background settings";
+"poster.baseColor" = "Base color";
+"poster.photoLibrary" = "Photo Library";
+"poster.addPoster" = "Add poster";
+"poster.noImage" = "No image";
+"poster.delete" = "Delete photo?";
+"poster.chooseWhatDo" = "Choose what you want to do with this photo";
+"poster.noPosters" = "No posters";
+"poster.dobavYje" = "Add your first poster";
+
+
+"category.category" = "Category";
+"category.addCategory" = "Add Category";
+"category.remove" = "Remove from category";
+"category.delete" = "Delete from device";
+"category.choose" = "Choose a category";
+"category.defaultDescription" = "Images without specific theme";
+
+
+"common.messageStyle" = "Message style";
+"common.save" = "Save";
+"common.name" = "Name";
+"common.description" = "Description";
+"common.color" = "Color";
+"common.icon" = "Icon";
+"common.cancel" = "Cancel";
+"common.add" = "Add";
+"common.delete" = "Delete";
+"common.edit" = "edit";
+"common.common" = "Common";
+
+
+"alert.notAvailable" = "Action not available";
+
+

@@ -31,13 +31,13 @@ struct ListOfCategoriesView: View {
                             Button(role: .destructive) {
                                 deleteCategory(category)
                             } label: {
-                                Label("Delete", systemImage: "trash")
+                                Label("common.delete", systemImage: "trash")
                             }
 
                             NavigationLink {
                                 CategoryDetailView(category: category)
                             } label: {
-                                Label("Edit", systemImage: "pencil")
+                                Label("common.edit", systemImage: "pencil")
                             }
                             .tint(.blue)
                         }
@@ -47,8 +47,8 @@ struct ListOfCategoriesView: View {
             .listStyle(.plain)
             .listStyle(.plain)
         }
-        .navigationBarTitle("Categories")
-        .alert("Action not available", isPresented: $showProtectedAlert) {
+        .navigationBarTitle("settings.categories")
+        .alert("alert.nelzya", isPresented: $showProtectedAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text("You can't delete 'Common' category")

@@ -18,21 +18,18 @@ struct SettingsView: View {
     @AppStorage(SettingsKeys.darkMode)
     private var darkModeRaw: String = DarkModeSettigns.system.rawValue
     
-    @AppStorage(SettingsKeys.language)
-    private var languageRaw: String = AppLanguage.en.rawValue
-    
     @Environment(\.openURL) private var openURL
     
     var body: some View {
         Form {
-            Section("Content") {
+            Section("settings.content") {
                 NavigationLink {
                     ListOfCategoriesView()
                 } label: {
-                    Label("Categories", systemImage: "list.dash")
+                    Label("settings.categories", systemImage: "list.dash")
                 }
                 Toggle(isOn: $isRandomOrder) {
-                    Label("Random cards order", systemImage: "photo")
+                    Label("settings.randomOrder", systemImage: "photo")
                 }
                 Section {
                     Picker(selection: $toneRaw) {
@@ -40,87 +37,80 @@ struct SettingsView: View {
                             Text(item.rawValue).tag(item.rawValue)
                         }
                     } label: {
-                        Label("Message style", systemImage: "slider.horizontal.below.square.and.square.filled")
+                        Label("settings.messageStyle", systemImage: "slider.horizontal.below.square.and.square.filled")
                     }
                 } footer: {
-                    Text("Positive focuses on rewards and long-term gains. Negative highlights risks and consequences.")
+                    Text("settings.messageStyle.footer")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
             }
-            Section("Apperaance") {
+            Section("settings.appearance") {
                 Picker(selection: $darkModeRaw) {
-                    ForEach(DarkModeSettigns.allCases, id: \.self) { darkMode in
-                        Text(darkMode.rawValue).tag(darkMode.rawValue)
+                    ForEach(DarkModeSettigns.allCases, id: \.self) { mode in
+                        Text(LocalizedStringKey("settings.theme." + "\(mode.rawValue)")).tag(mode.rawValue)
                     }
                 } label: {
-                    Label("Theme", systemImage: "circle.lefthalf.filled")
+                    Label("settings.theme", systemImage: "circle.lefthalf.filled")
                 }
             }
-            Section("System") {
-                Picker(selection: $languageRaw) {
-                    ForEach(AppLanguage.allCases, id: \.self) { language in
-                        Text(language.rawValue)
-                            .tag(language.rawValue)
-                    }
-                } label: {
-                    Label("Language", systemImage: "globe")
-                }
-                if (DeviceCapabilities.hasActionButton) {
+            if (DeviceCapabilities.hasActionButton) {
+                Section {
                     Section {
                         Button {
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 openURL(url)
                             }
                         } label: {
-                            Label("Action Button", systemImage: "button.vertical.left.press.fill")
+                            Label("settings.actionButton", systemImage: "button.vertical.left.press.fill")
                         }
                     } footer: {
-                        Text("""
-                        Assign this app to your Action Button to instantly redirect your focus.
-                        Go to Settings → Action Button to configure it.
-                        """)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
+                        Text("settings.actionButton.footer")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
                     }
+                    
+                } header: {
+                    Text("settings.system")
                 }
             }
-            Section("Data") {
+            
+            Section("settings.data") {
                 Button {
                     
                 } label: {
-                    Label("Export data", systemImage: "square.and.arrow.up.circle")
+                    Label("settings.exportData", systemImage: "square.and.arrow.up.circle")
                 }
             }
-            Section("Feedback") {
+            Section("settings.feedback") {
                 Button {
                     
                 } label: {
-                    Label("Rate app", systemImage: "star.bubble")
+                    Label("settings.rateApp", systemImage: "star.bubble")
                 }
                 Button {
                     
                 } label: {
-                    Label("Share app", systemImage: "square.and.arrow.up")
-                }
-            }
-            Section("Support") {
-                Button {
-                    
-                } label: {
-                    Label("Buy me a coffee", systemImage: "cup.and.saucer")
+                    Label("settings.shareApp", systemImage: "square.and.arrow.up")
                 }
             }
-            Section("Warning") {
+            Section("settings.support") {
                 Button {
                     
                 } label: {
-                    Label("Reset Settings", systemImage: "arrow.counterclockwise")
+                    Label("settings.buyCoffee", systemImage: "cup.and.saucer")
+                }
+            }
+            Section("settings.warning") {
+                Button {
+                    
+                } label: {
+                    Label("settings.resetSettings", systemImage: "arrow.counterclockwise")
                 }
                 Button {
                     
                 } label: {
-                    Label("Delete all data", systemImage: "trash")
+                    Label("settings.deleteAllData", systemImage: "trash")
                 }
                 .font(.headline)
                 .foregroundStyle(.red)

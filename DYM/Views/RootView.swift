@@ -119,8 +119,8 @@ struct RootView: View {
         )
         
         let defaultCategory = Category(
-            name: "Common",
-            categoryDescription: "Images without specific theme",
+            name: "comon.common",
+            categoryDescription: "category.defaultDescription",
             color: .gray,
             icon: "♾️",
             isProtected: true

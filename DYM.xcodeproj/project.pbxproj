@@ -10,9 +10,22 @@
 		CE035A012ED0CFEC0064543A /* DYM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9D56F9F22F4F2BB4000D5564 /* Exceptions for "DYM" folder in "DYM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CE035A002ED0CFEC0064543A /* DYM */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CE035A032ED0CFEC0064543A /* DYM */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9D56F9F22F4F2BB4000D5564 /* Exceptions for "DYM" folder in "DYM" target */,
+			);
 			path = DYM;
 			sourceTree = "<group>";
 		};
@@ -91,6 +104,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = CE0359F82ED0CFEC0064543A;
 			minimizedProjectReferenceProxies = 1;
@@ -257,6 +271,7 @@
 				DEVELOPMENT_TEAM = 5XK76ZB3NR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DYM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +312,7 @@
 				DEVELOPMENT_TEAM = 5XK76ZB3NR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DYM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

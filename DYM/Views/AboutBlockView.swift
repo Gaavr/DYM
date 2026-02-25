@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AboutBlockView: View {
     
-    let title: String
-    let text: String
+    let title: LocalizedStringKey
+    let text: LocalizedStringKey
     let systemImage: String
     
     var body: some View {

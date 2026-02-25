@@ -6,64 +6,26 @@
 //
 
 //TODO: Переделать на реальную информацию
+import SwiftUI
+
 enum AboutText {
-   
-    static let appTitle = "Dominate Your Mind"
+
+    static let appTitle: LocalizedStringKey = "about.appTitle"
     static let appSymbol = "brain.head.profile"
 
-    static let awarenessTitle = "You Are Not Your Thoughts"
+    static let awarenessTitle: LocalizedStringKey = "about.awareness.title"
     static let awarenessSymbol = "eye"
+    static let awarenessText: LocalizedStringKey = "about.awareness.text"
 
-    static let awarenessText = """
-    The mind generates thoughts automatically.
-    Most of them arise without intention or choice.
-
-    Thoughts are events — not commands.
-    You do not have to follow them.
-
-    Awareness begins the moment you notice
-    what your mind is doing.
-    """
-
-    static let interruptionTitle = "Breaking Autopilot"
+    static let interruptionTitle: LocalizedStringKey = "about.interruption.title"
     static let interruptionSymbol = "pause.circle"
+    static let interruptionText: LocalizedStringKey = "about.interruption.text"
 
-    static let interruptionText = """
-    Most mental struggles happen on autopilot.
-
-    This app creates a deliberate interruption —
-    a pause between impulse and reaction.
-
-    That pause is where choice becomes possible.
-    """
-
-    static let philosophyTitle = "Design Philosophy"
+    static let philosophyTitle: LocalizedStringKey = "about.philosophy.title"
     static let philosophySymbol = "circle.dashed"
+    static let philosophyText: LocalizedStringKey = "about.philosophy.text"
 
-    static let philosophyText = """
-    Simplicity is intentional.
-
-    The brain processes less information more deeply.
-    That is why this app avoids feeds, streaks, and noise.
-
-    Every element exists for one purpose:
-    to reduce friction between awareness and action.
-    """
-
-    static let howItWorksTitle = "How It Works"
+    static let howItWorksTitle: LocalizedStringKey = "about.howItWorks.title"
     static let howItWorksSymbol = "sparkles"
-
-    static let howItWorksText = """
-    You open the app by choice.
-
-    You see one message.
-    One idea.
-    One moment of clarity.
-
-    No tracking.
-    No persuasion.
-    No endless scrolling.
-
-    Just awareness — when you need it.
-    """
+    static let howItWorksText: LocalizedStringKey = "about.howItWorks.text"
 }

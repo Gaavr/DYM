@@ -22,18 +22,18 @@ struct SavePosterSheetView: View {
         NavigationStack {
             Form {
                 Section {
-                    Picker("Message style", selection: $tone) {
+                    Picker("common.messageStyle", selection: $tone) {
                         ForEach(MotivationIntensity.allCases, id: \.self) { t in
                             Text(t.rawValue).tag(t)
                         }
                     }
-                    Picker("Category", selection: $chosenCategory) {
+                    Picker("category.category", selection: $chosenCategory) {
                         ForEach(categories) { c in
                             Text(c.name).tag(Optional(c))
                         }
                     }
                 }
-                Section("Preview") {
+                Section("quote.preview") {
                     Group {
                         if let imageData, let uiImage = UIImage(data: imageData) {
                             Image(uiImage: uiImage)
@@ -43,21 +43,21 @@ struct SavePosterSheetView: View {
                                 .clipped()
                                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                         } else {
-                            ContentUnavailableView("No image", systemImage: "photo")
+                            ContentUnavailableView("poster.noImage", systemImage: "photo")
                                 .frame(height: 160)
                         }
                     }
                     .frame(maxWidth: .infinity)
                 }
             }
-            .navigationTitle("New poster")
+            .navigationTitle("poster.new")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { isPresented = false }
+                    Button("common.cancel") { isPresented = false }
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
+                    Button("common.save") {
                         guard let category = chosenCategory else { return }
                         onSave(category, tone)
                         isPresented = false

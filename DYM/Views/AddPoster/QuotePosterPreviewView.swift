@@ -47,16 +47,22 @@ struct QuotePosterPreviewView: View {
 
                 VStack {
                     Spacer()
-
-                    Text("“\(text.isEmpty ? "Your quote will appear here" : text)”")
-                        .font(.system(size: quoteFont, weight: .bold))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, w * 0.08)
-                        .minimumScaleFactor(0.6)
-
+                    if text.isEmpty {
+                            Text(LocalizedStringKey("quote.example"))
+                                .font(.system(size: quoteFont, weight: .bold))
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, w * 0.08)
+                                .minimumScaleFactor(0.6)
+                        } else {
+                            Text(text)
+                                .font(.system(size: quoteFont, weight: .bold))
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, w * 0.08)
+                                .minimumScaleFactor(0.6)
+                        }
                     Spacer()
-
                     if !author.isEmpty {
                         Text("— \(author)")
                             .font(.system(size: authorFont, weight: .semibold))
