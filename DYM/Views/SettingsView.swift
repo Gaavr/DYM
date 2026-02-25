@@ -88,7 +88,6 @@ struct SettingsView: View {
                 } label: {
                     Label("Rate app", systemImage: "star.bubble")
                 }
-                
                 Button {
                     
                 } label: {
@@ -108,7 +107,6 @@ struct SettingsView: View {
                 } label: {
                     Label("Reset Settings", systemImage: "arrow.counterclockwise")
                 }
-                
                 Button {
                     
                 } label: {
@@ -117,9 +115,6 @@ struct SettingsView: View {
                 .font(.headline)
                 .foregroundStyle(.red)
             }
-            
-            
-            //TODO: Настройка по ACtion Button еще
         }
         .foregroundStyle(.primary)
     }

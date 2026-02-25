@@ -29,17 +29,25 @@ struct MainView: View {
         )
     }
     
+    @AppStorage(SettingsKeys.isRandomOrder)
+    private var isRandomOrder: Bool = false
+    @State private var orderedPosters: [Poster] = []
+    
+    private var displayedPosters: [Poster] {
+        isRandomOrder ? orderedPosters : posters
+    }
+    
     var body: some View {
         Group {
             if category == nil {
                 ContentUnavailableView("Choose a category", systemImage: "square.grid.2x2")
-            } else if posters.isEmpty {
+            } else if displayedPosters.isEmpty {
                 ContentUnavailableView("No posters", systemImage: "photo")
             } else {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 0) {
                         ForEach(0..<virtualSlotsAmount, id: \.self) { vIndex in
-                            posters[wrappedIndex(for: vIndex, itemCount: posters.count)].image
+                            displayedPosters[wrappedIndex(for: vIndex, itemCount: displayedPosters.count)].image
                                 .resizable()
                                 .scaledToFit() //TODO: надо дать выбор пользователю
                                 .containerRelativeFrame(.horizontal)
@@ -51,26 +59,33 @@ struct MainView: View {
                 .scrollIndicators(.hidden)
                 .scrollTargetBehavior(.paging)
                 .scrollPosition(id: $virtualPosition)
-                .onAppear {
-                    if virtualPosition == nil { resetToCenter() }
-                }
                 .onChange(of: virtualPosition) { _, newValue in
-                    guard let newValue, posters.count > 0 else { return }
+                    guard let newValue, displayedPosters.count > 0 else { return }
                     recenterIfNeeded(currentVirtualIndex: newValue)
                 }
             }
         }
+        .onAppear {
+            rebuildOrderIfNeeded()
+            if virtualPosition == nil { resetToCenter() }
+        }
         .onChange(of: category?.id) {
+            rebuildOrderIfNeeded()
             resetToCenter()
         }
         .onChange(of: posters.count) {
+            rebuildOrderIfNeeded()
+            resetToCenter()
+        }
+        .onChange(of: isRandomOrder) {
+            rebuildOrderIfNeeded()
             resetToCenter()
         }
     }
     
     // MARK: Для бесконечного скрола
     private func resetToCenter() {
-        guard posters.count > 0 else {
+        guard displayedPosters.count > 0 else {
             virtualPosition = nil
             return
         }
@@ -86,7 +101,7 @@ struct MainView: View {
         
         if currentVirtualIndex < recenterTriggerDistance || currentVirtualIndex > (virtualSlotsAmount - recenterTriggerDistance) {
             //какой реальный постер сейчас
-            let real = wrappedIndex(for: currentVirtualIndex, itemCount: posters.count)
+            let real = wrappedIndex(for: currentVirtualIndex, itemCount: displayedPosters.count)
             //переносим в центр, сохранив реальный индекс
             let recentered = center + real
             
@@ -108,6 +123,10 @@ struct MainView: View {
         : remainder + itemCount
         
         return nonNegativeIndex
+    }
+    
+    private func rebuildOrderIfNeeded() {
+        orderedPosters = isRandomOrder ? posters.shuffled() : []
     }
 }
 
