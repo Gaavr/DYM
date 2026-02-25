@@ -9,7 +9,7 @@ enum SettingsKeys {
     //MARK: SettingView
     static let isRandomOrder = "settings.isRandomOrder"
     static let motivationIntensity = "settings.motivationIntensity"
-    static let isDarkMode = "settings.isDarkMode"
+    static let darkMode = "settings.darkMode"
     static let language = "settings.language"
     //MARK: RootView
     static let rootViewSelectedCategoryId = "settings.rootView.selectedCategoryId"

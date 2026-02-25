@@ -55,7 +55,7 @@ struct CategoryDetailView: View {
                 } label: {
                     Text(category == nil ? "Add category" : "Save")
                         .frame(maxWidth: .infinity, alignment: .center)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.primary)
                 }
                 .disabled(name.isEmpty)
             }

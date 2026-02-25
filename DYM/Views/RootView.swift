@@ -28,6 +28,13 @@ struct RootView: View {
     @AppStorage(SettingsKeys.rootViewSelectedCategoryId)
     private var selectedCategoryId: String?
     
+    @AppStorage(SettingsKeys.darkMode)
+    private var themeRaw: String = DarkModeSettigns.system.rawValue
+
+    private var theme: DarkModeSettigns {
+        DarkModeSettigns(rawValue: themeRaw) ?? .system
+    }
+    
     var body: some View {
         NavigationStack {
             TabView(selection: $selectedTab) {
@@ -78,7 +85,7 @@ struct RootView: View {
         }
         .onAppear {
             if !didSeedInitialData {
-                seedMotivationCategory(context: modelContext)
+                seedInitialData(context: modelContext)
                 didSeedInitialData = true
             }
             restoreChosenCategoryIfNeeded()
@@ -86,7 +93,9 @@ struct RootView: View {
         .onChange(of: categories.count) {
             restoreChosenCategoryIfNeeded()
         }
-        .preferredColorScheme(.light)
+        .preferredColorScheme(
+            theme == .system ? nil : (theme == .dark ? .dark : .light)
+        )
     }
     
     private func restoreChosenCategoryIfNeeded() {
@@ -101,7 +110,7 @@ struct RootView: View {
         }
     }
     
-    func seedMotivationCategory(context: ModelContext) {
+    func seedInitialData(context: ModelContext) {
         let category = Category(
             name: "Motivation",
             categoryDescription: "Default motivation posters",

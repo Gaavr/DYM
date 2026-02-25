@@ -15,8 +15,8 @@ struct SettingsView: View {
     @AppStorage(SettingsKeys.motivationIntensity)
     private var toneRaw: String = MotivationIntensity.any.rawValue
     
-    @AppStorage(SettingsKeys.isDarkMode)
-    private var isDarkMode: Bool = false
+    @AppStorage(SettingsKeys.darkMode)
+    private var darkModeRaw: String = DarkModeSettigns.system.rawValue
     
     @AppStorage(SettingsKeys.language)
     private var languageRaw: String = AppLanguage.en.rawValue
@@ -49,8 +49,12 @@ struct SettingsView: View {
                 }
             }
             Section("Apperaance") {
-                Toggle(isOn: $isDarkMode) {
-                    Label("Dark mode", systemImage: "circle.lefthalf.filled")
+                Picker(selection: $darkModeRaw) {
+                    ForEach(DarkModeSettigns.allCases, id: \.self) { darkMode in
+                        Text(darkMode.rawValue).tag(darkMode.rawValue)
+                    }
+                } label: {
+                    Label("Theme", systemImage: "circle.lefthalf.filled")
                 }
             }
             Section("System") {
