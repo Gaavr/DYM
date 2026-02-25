@@ -34,7 +34,7 @@ struct CategoryItemInListView: View {
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
                 }
-                
+
             }
 
             Spacer(minLength: 0)

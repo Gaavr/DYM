@@ -9,11 +9,18 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @State private var isRandomOrder: Bool = false
-    @State private var isDarkMode: Bool = false
-    @State private var language: AppLanguage = .en
-    @State private var showToneDialog = false
-    @State private var tone: MotivationIntensity = .any
+    @AppStorage(SettingsKeys.isRandomOrder)
+    private var isRandomOrder: Bool = false
+    
+    @AppStorage(SettingsKeys.motivationIntensity)
+    private var toneRaw: String = MotivationIntensity.any.rawValue
+    
+    @AppStorage(SettingsKeys.isDarkMode)
+    private var isDarkMode: Bool = false
+    
+    @AppStorage(SettingsKeys.language)
+    private var languageRaw: String = AppLanguage.en.rawValue
+    
     @Environment(\.openURL) private var openURL
     
     var body: some View {
@@ -27,13 +34,20 @@ struct SettingsView: View {
                 Toggle(isOn: $isRandomOrder) {
                     Label("Random cards order", systemImage: "photo")
                 }
-                Picker(selection: $tone) {
-                    ForEach(MotivationIntensity.allCases, id: \.self) { tone in
-                        Text(tone.rawValue)
+                Section {
+                    Picker(selection: $toneRaw) {
+                        ForEach(MotivationIntensity.allCases, id: \.self) { item in
+                            Text(item.rawValue).tag(item.rawValue)
+                        }
+                    } label: {
+                        Label("Message style", systemImage: "slider.horizontal.below.square.and.square.filled")
                     }
-                } label: {
-                    Label("Message style", systemImage: "slider.horizontal.below.square.and.square.filled")
+                } footer: {
+                    Text("Positive focuses on rewards and long-term gains. Negative highlights risks and consequences.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                 }
+                
             }
             Section("Apperaance") {
                 Toggle(isOn: $isDarkMode) {
@@ -41,17 +55,24 @@ struct SettingsView: View {
                 }
             }
             Section("System") {
-                Picker(selection: $language) {
+                Picker(selection: $languageRaw) {
                     ForEach(AppLanguage.allCases, id: \.self) { language in
                         Text(language.rawValue)
+                            .tag(language.rawValue)
                     }
                 } label: {
                     Label("Language", systemImage: "globe")
                 }
-                Button {
-                    openURL(URL(string: UIApplication.openDefaultApplicationsSettingsURLString)!)
-                } label: {
-                    Label("Action Button", systemImage: "button.vertical.left.press.fill")
+                Section {
+                    Button {
+                        openURL(URL(string: UIApplication.openDefaultApplicationsSettingsURLString)!)
+                    } label: {
+                        Label("Action Button", systemImage: "button.vertical.left.press.fill")
+                    }
+                } footer: {
+                    Text("Assign this app to your Action Button to instantly redirect your focus.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                 }
             }
             Section("Data") {
@@ -76,7 +97,7 @@ struct SettingsView: View {
             }
             Section("Support") {
                 Button {
-                   
+                    
                 } label: {
                     Label("Buy me a coffee", systemImage: "cup.and.saucer")
                 }
