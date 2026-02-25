@@ -47,7 +47,6 @@ struct SettingsView: View {
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
-                
             }
             Section("Apperaance") {
                 Toggle(isOn: $isDarkMode) {
@@ -63,16 +62,23 @@ struct SettingsView: View {
                 } label: {
                     Label("Language", systemImage: "globe")
                 }
-                Section {
-                    Button {
-                        openURL(URL(string: UIApplication.openDefaultApplicationsSettingsURLString)!)
-                    } label: {
-                        Label("Action Button", systemImage: "button.vertical.left.press.fill")
-                    }
-                } footer: {
-                    Text("Assign this app to your Action Button to instantly redirect your focus.")
+                if (DeviceCapabilities.hasActionButton) {
+                    Section {
+                        Button {
+                            if let url = URL(string: UIApplication.openSettingsURLString) {
+                                openURL(url)
+                            }
+                        } label: {
+                            Label("Action Button", systemImage: "button.vertical.left.press.fill")
+                        }
+                    } footer: {
+                        Text("""
+                        Assign this app to your Action Button to instantly redirect your focus.
+                        Go to Settings → Action Button to configure it.
+                        """)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
+                    }
                 }
             }
             Section("Data") {

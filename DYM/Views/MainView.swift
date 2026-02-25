@@ -34,7 +34,25 @@ struct MainView: View {
     @State private var orderedPosters: [Poster] = []
     
     private var displayedPosters: [Poster] {
-        isRandomOrder ? orderedPosters : posters
+        isRandomOrder ? orderedPosters : filteredPosters
+    }
+    
+    @AppStorage(SettingsKeys.motivationIntensity)
+    private var toneRaw: String = MotivationIntensity.any.rawValue
+    
+    private var tone: MotivationIntensity {
+        MotivationIntensity(rawValue: toneRaw) ?? .any
+    }
+
+    private var filteredPosters: [Poster] {
+        switch tone {
+        case .any:
+            return posters
+        case .positive:
+            return posters.filter { $0.motivationIntensity == .positive }
+        case .negative:
+            return posters.filter { $0.motivationIntensity == .negative }
+        }
     }
     
     var body: some View {
@@ -78,6 +96,10 @@ struct MainView: View {
             resetToCenter()
         }
         .onChange(of: isRandomOrder) {
+            rebuildOrderIfNeeded()
+            resetToCenter()
+        }
+        .onChange(of: toneRaw) {
             rebuildOrderIfNeeded()
             resetToCenter()
         }
@@ -126,7 +148,7 @@ struct MainView: View {
     }
     
     private func rebuildOrderIfNeeded() {
-        orderedPosters = isRandomOrder ? posters.shuffled() : []
+        orderedPosters = isRandomOrder ? filteredPosters.shuffled() : []
     }
 }
 

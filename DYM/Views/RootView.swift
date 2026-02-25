@@ -10,7 +10,9 @@ import SwiftUI
 
 struct RootView: View {
     
-    @AppStorage("didSeedMotivation") private var didSeedMotivation = false
+    @AppStorage(SettingsKeys.didSeedInitialData)
+    private var didSeedInitialData = false
+    
     @Environment(\.modelContext)
     private var modelContext: ModelContext
     
@@ -22,6 +24,9 @@ struct RootView: View {
     @State var showAddSheet: Bool = false
     @Query var categories: [Category]
     @State private var chosenCategory: Category?
+    
+    @AppStorage(SettingsKeys.rootViewSelectedCategoryId)
+    private var selectedCategoryId: String?
     
     var body: some View {
         NavigationStack {
@@ -43,6 +48,7 @@ struct RootView: View {
                             ForEach(categories) { category in
                                 Button {
                                     chosenCategory = category
+                                    selectedCategoryId = category.id.uuidString
                                 } label: {
                                     Text(category.name)
                                 }
@@ -71,17 +77,28 @@ struct RootView: View {
             
         }
         .onAppear {
-            if !didSeedMotivation {
+            if !didSeedInitialData {
                 seedMotivationCategory(context: modelContext)
-                didSeedMotivation = true
+                didSeedInitialData = true
             }
-            if chosenCategory == nil {
-                chosenCategory =
-                categories.first(where: { $0.name == "Common" })
-                ?? categories.first
-            }
+            restoreChosenCategoryIfNeeded()
+        }
+        .onChange(of: categories.count) {
+            restoreChosenCategoryIfNeeded()
         }
         .preferredColorScheme(.light)
+    }
+    
+    private func restoreChosenCategoryIfNeeded() {
+        guard chosenCategory == nil else { return }
+
+        if let idString = selectedCategoryId,
+           let uuid = UUID(uuidString: idString),
+           let saved = categories.first(where: { $0.id == uuid }) {
+            chosenCategory = saved
+        } else {
+            chosenCategory = categories.first(where: { $0.name == "Common" }) ?? categories.first
+        }
     }
     
     func seedMotivationCategory(context: ModelContext) {
