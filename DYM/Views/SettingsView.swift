@@ -76,10 +76,10 @@ struct SettingsView: View {
             }
             
             Section("settings.data") {
-                Button {
-                    
+                NavigationLink {
+                    ExportDataView()
                 } label: {
-                    Label("settings.exportData", systemImage: "square.and.arrow.up.circle")
+                    Label("settings.exportData", systemImage: "square.and.arrow.up")
                 }
             }
             Section("settings.feedback") {

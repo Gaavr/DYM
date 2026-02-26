@@ -95,3 +95,12 @@
 "support.mail.greeting" = "Привет!";
 "support.mail.prompt" = "Опиши проблему/идею:";
 "support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";
+
+/* ExportDataView */
+"export.nav.title" = "Экспорт данных";
+"export.section.header" = "Экспорт";
+"common.select" = "Выбрать";
+"export.section.footer" = "Создаёт ZIP-архив со всеми постерами выбранной категории. Вы можете сохранить его в «Файлы» или поделиться с другим приложением.";
+"export.button.title" = "Экспортировать";
+"export.alert.failed.title" = "Ошибка экспорта";
+"common.ok" = "ОК";

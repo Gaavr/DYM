@@ -87,6 +87,7 @@
 "common.delete" = "Delete";
 "common.edit" = "edit";
 "common.common" = "Common";
+"common.select" = "Select";
 
 
 "alert.notAvailable" = "Action not available";
@@ -96,3 +97,11 @@
 "support.mail.greeting" = "Hi!";
 "support.mail.prompt" = "Please describe your issue or idea:";
 "support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";
+
+//Export
+"export.nav.title" = "Export Data";
+"export.section.header" = "Export";
+"export.section.footer" = "Creates a ZIP archive with all posters from the selected category. You can save it to Files or share it to any app.";
+"export.button.title" = "Export data";
+"export.alert.failed.title" = "Export failed";
+"common.ok" = "OK";
