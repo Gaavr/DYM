@@ -22,14 +22,16 @@ struct SettingsView: View {
     
     @Environment(\.openURL) private var openURL
     @Environment(\.requestReview) private var requestReview
-    private let appStoreID = "1234567890"
+    private let appStoreID = "6758716185"
     @Query private var categories: [Category]
     private let appStoreURL = URL(string: "https://apps.apple.com/app/id6758716185")!
     
     @State private var shareAppItem: ShareItem?
+    @State private var showResetSettingsAlert = false
+    @State private var showDeleteAllDataAlert = false
+    @State private var deleteAllDataError: String?
     
-    @State private var showResetSettingsConfirm = false
-    
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         Form {
@@ -124,7 +126,7 @@ struct SettingsView: View {
                 } label: {
                     Label("settings.contactSupport", systemImage: "envelope")
                 }
-
+                
                 Button {
                     // buy coffee
                 } label: {
@@ -133,20 +135,70 @@ struct SettingsView: View {
             }
             Section("settings.warning") {
                 Button {
-                    
+                    showResetSettingsAlert = true
                 } label: {
                     Label("settings.resetSettings", systemImage: "arrow.counterclockwise")
                 }
                 Button {
-                    
+                    showDeleteAllDataAlert = true
                 } label: {
                     Label("settings.deleteAllData", systemImage: "trash")
                 }
                 .font(.headline)
                 .foregroundStyle(.red)
             }
+            .alert("settings.resetSettings.alert.title", isPresented: $showResetSettingsAlert) {
+                Button("common.cancel", role: .cancel) { }
+                Button("settings.resetSettings.alert.action", role: .destructive) {
+                    resetSettings()
+                }
+            } message: {
+                Text("settings.resetSettings.alert.message")
+            }
+            .alert("settings.deleteAllData.alert.title", isPresented: $showDeleteAllDataAlert) {
+                Button("common.cancel", role: .cancel) { }
+                Button("settings.deleteAllData.alert.action", role: .destructive) {
+                    deleteAllData()
+                }
+            } message: {
+                Text("settings.deleteAllData.alert.message")
+            }
+            .alert("settings.deleteAllData.alert.failed.title", isPresented: Binding(
+                get: { deleteAllDataError != nil },
+                set: { if !$0 { deleteAllDataError = nil } }
+            )) {
+                Button("common.ok") { deleteAllDataError = nil }
+            } message: {
+                Text(deleteAllDataError ?? "")
+            }
         }
         .foregroundStyle(.primary)
+    }
+    
+    private func resetSettings() {
+        isRandomOrder = false
+        toneRaw = MotivationIntensity.any.rawValue
+        darkModeRaw = DarkModeSettigns.system.rawValue
+    }
+    
+    private func deleteAllData() {
+        do {
+            // 1) delete all posters
+            let posters = try modelContext.fetch(FetchDescriptor<Poster>())
+            posters.forEach { modelContext.delete($0) }
+
+            // 2) delete all categories except protected
+            let categoriesToDelete = try modelContext.fetch(
+                FetchDescriptor<Category>(
+                    predicate: #Predicate { $0.isProtected == false }
+                )
+            )
+            categoriesToDelete.forEach { modelContext.delete($0) }
+
+            try modelContext.save()
+        } catch {
+            deleteAllDataError = String(describing: error)
+        }
     }
 }
 

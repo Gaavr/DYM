@@ -35,6 +35,10 @@
 "settings.language.footer" = "Change the app language in Settings → DYM → Language.";
 "settings.contactSupport" = "Contact support";
 "settings.shareApp" = "Share App";
+"settings.deleteAllData.alert.title" = "Delete all data?";
+"settings.deleteAllData.alert.message" = "This will delete all posters and all categories except the built-in category. This action cannot be undone.";
+"settings.deleteAllData.alert.action" = "Delete";
+"settings.deleteAllData.alert.failed.title" = "Delete failed";
 
 /* About */
 "about.appTitle" = "Dominate Your Mind";
@@ -89,9 +93,10 @@
 "common.common" = "Common";
 "common.select" = "Select";
 
-
-"alert.notAvailable" = "Action not available";
-
+//Alerts
+"settings.resetSettings.alert.title" = "Reset settings?";
+"settings.resetSettings.alert.message" = "This will restore the default settings for the app.";
+"settings.resetSettings.alert.action" = "Reset";
 
 //Support message
 "support.mail.greeting" = "Hi!";

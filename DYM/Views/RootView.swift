@@ -99,14 +99,19 @@ struct RootView: View {
     }
     
     private func restoreChosenCategoryIfNeeded() {
-        guard chosenCategory == nil else { return }
-
-        if let idString = selectedCategoryId,
-           let uuid = UUID(uuidString: idString),
-           let saved = categories.first(where: { $0.id == uuid }) {
+        if let chosen = chosenCategory,
+           categories.contains(where: { $0.id == chosen.id }) {
+            return
+        } else if let idString = selectedCategoryId,
+                  let uuid = UUID(uuidString: idString),
+                  let saved = categories.first(where: { $0.id == uuid }) {
             chosenCategory = saved
+        } else if let common = categories.first(where: { $0.isProtected }) {
+            chosenCategory = common
+            selectedCategoryId = common.id.uuidString
         } else {
-            chosenCategory = categories.first(where: { $0.name == "Common" }) ?? categories.first
+            chosenCategory = categories.first
+            selectedCategoryId = chosenCategory?.id.uuidString
         }
     }
     
