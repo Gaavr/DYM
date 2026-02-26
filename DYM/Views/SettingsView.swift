@@ -33,8 +33,13 @@ struct SettingsView: View {
     
     @Environment(\.modelContext) private var modelContext
     
+    @EnvironmentObject private var tipStore: TipStore
+    @State private var showTipError = false
+    @State private var showTipsSheet = false
+    
     var body: some View {
         Form {
+            // MARK: -Content
             Section("settings.content") {
                 NavigationLink {
                     ListOfCategoriesView()
@@ -58,6 +63,7 @@ struct SettingsView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+            // MARK: -Appearance
             Section("settings.appearance") {
                 Picker(selection: $darkModeRaw) {
                     ForEach(DarkModeSettigns.allCases, id: \.self) { mode in
@@ -87,7 +93,7 @@ struct SettingsView: View {
                     Text("settings.system")
                 }
             }
-            
+            // MARK: -Data
             Section("settings.data") {
                 NavigationLink {
                     ExportDataView()
@@ -95,6 +101,7 @@ struct SettingsView: View {
                     Label("settings.exportData", systemImage: "square.and.arrow.up")
                 }
             }
+            // MARK: -Feedback
             Section("settings.feedback") {
                 Button {
                     if categories.count >= 5 {
@@ -112,12 +119,13 @@ struct SettingsView: View {
                 } label: {
                     Label("settings.shareApp", systemImage: "square.and.arrow.up")
                 }
-                .sheet(item: $shareAppItem) { item in
-                    ShareSheet(items: [item.url]) {
-                        shareAppItem = nil
-                    }
+            }
+            .sheet(item: $shareAppItem) { item in
+                ShareSheet(items: [item.url]) {
+                    shareAppItem = nil
                 }
             }
+            //MARK: -Support
             Section("settings.support") {
                 Button {
                     if let url = SupportMail.url(body: SupportMail.defaultBody()) {
@@ -127,12 +135,15 @@ struct SettingsView: View {
                     Label("settings.contactSupport", systemImage: "envelope")
                 }
                 
-                Button {
-                    // buy coffee
+                NavigationLink {
+                    TipsView(tipStore: tipStore)
+                        .task { await tipStore.load() }
                 } label: {
-                    Label("settings.buyCoffee", systemImage: "cup.and.saucer")
+                    Label("donate.title", systemImage: "cup.and.saucer")
                 }
             }
+            
+            // MARK: -Warning
             Section("settings.warning") {
                 Button {
                     showResetSettingsAlert = true
@@ -186,7 +197,7 @@ struct SettingsView: View {
             // 1) delete all posters
             let posters = try modelContext.fetch(FetchDescriptor<Poster>())
             posters.forEach { modelContext.delete($0) }
-
+            
             // 2) delete all categories except protected
             let categoriesToDelete = try modelContext.fetch(
                 FetchDescriptor<Category>(
@@ -194,7 +205,7 @@ struct SettingsView: View {
                 )
             )
             categoriesToDelete.forEach { modelContext.delete($0) }
-
+            
             try modelContext.save()
         } catch {
             deleteAllDataError = String(describing: error)

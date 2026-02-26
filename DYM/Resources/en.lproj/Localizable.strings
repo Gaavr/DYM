@@ -79,7 +79,6 @@
 "category.choose" = "Choose a category";
 "category.defaultDescription" = "Images without specific theme";
 
-
 "common.messageStyle" = "Message style";
 "common.save" = "Save";
 "common.name" = "Name";
@@ -92,6 +91,8 @@
 "common.edit" = "edit";
 "common.common" = "Common";
 "common.select" = "Select";
+"common.done" = "Done";
+"common.loading" = "Loading…";
 
 //Alerts
 "settings.resetSettings.alert.title" = "Reset settings?";
@@ -110,3 +111,6 @@
 "export.button.title" = "Export data";
 "export.alert.failed.title" = "Export failed";
 "common.ok" = "OK";
+
+
+"donate.title" = "Support development";

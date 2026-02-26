@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  DYM
-
-  Created by Andrei Gavrilenko on 25.02.2026.
-  
-*/
+/*
+ Localizable.strings
+ DYM
+ 
+ Created by Andrei Gavrilenko on 25.02.2026.
+ 
+ */
 
 /* Settings */
 "settings.content" = "Контент";
@@ -91,6 +91,8 @@
 "common.delete" = "Удалить";
 "common.edit" = "Редактировать";
 "common.common" = "Общее";
+"common.done" = "Готово";
+"common.loading" = "Загрузка…";
 
 //ALerts
 "settings.resetSettings.alert.title" = "Сбросить настройки?";
@@ -110,3 +112,6 @@
 "export.button.title" = "Экспортировать";
 "export.alert.failed.title" = "Ошибка экспорта";
 "common.ok" = "ОК";
+
+//Donate
+"donate.title" = "Поддержать разработку";
