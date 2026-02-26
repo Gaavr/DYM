@@ -33,6 +33,7 @@
 "settings.deleteAllData" = "Удалить все данные";
 "settings.tapToChangeBackground" = "Нажмите, чтобы сменить фон";
 "settings.language.footer" = "Измените язык приложения в Настройки → DYM → Язык.";
+"settings.contactSupport" = "Написать в поддержку";
 
 
 /* About */

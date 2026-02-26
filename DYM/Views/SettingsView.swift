@@ -95,8 +95,17 @@ struct SettingsView: View {
                 }
             }
             Section("settings.support") {
+                //TODO: добавить шаблон для сообщения
                 Button {
-                    
+                    if let url = URL(string: "mailto:gavrjob@gmail.com") {
+                        openURL(url)
+                    }
+                } label: {
+                    Label("settings.contactSupport", systemImage: "envelope")
+                }
+
+                Button {
+                    // buy coffee
                 } label: {
                     Label("settings.buyCoffee", systemImage: "cup.and.saucer")
                 }
