@@ -124,8 +124,8 @@ struct RootView: View {
         )
         
         let defaultCategory = Category(
-            name: "comon.common",
-            categoryDescription: "category.defaultDescription",
+            name:  String(localized: "common.common"),
+            categoryDescription: String(localized: "category.defaultDescription"),
             color: .gray,
             icon: "♾️",
             isProtected: true
