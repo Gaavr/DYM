@@ -34,7 +34,7 @@
 "settings.tapToChangeBackground" = "Tap to change background";
 "settings.language.footer" = "Change the app language in Settings → DYM → Language.";
 "settings.contactSupport" = "Contact support";
-
+"settings.shareApp" = "Share App";
 
 /* About */
 "about.appTitle" = "Dominate Your Mind";

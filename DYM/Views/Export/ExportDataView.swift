@@ -47,7 +47,7 @@ struct ExportDataView: View {
         .navigationTitle("export.nav.title")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $shareItem) { item in
-            ActivityView(items: [item.url]) {
+            ShareSheet(items: [item.url]) {
                 shareItem = nil
                 dismiss()
             }
@@ -81,33 +81,6 @@ struct ExportDataView: View {
         } catch {
             exportError = String(describing: error)
         }
-    }
-}
-
-// MARK: - Share Sheet
-
-struct ActivityView: UIViewControllerRepresentable {
-    let items: [Any]
-    let onComplete: () -> Void
-    
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        let vc = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        vc.completionWithItemsHandler = { _, _, _, _ in
-            onComplete()
-        }
-        return vc
-    }
-    
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
-}
-
-struct ShareItem: Identifiable {
-    let id: String
-    let url: URL
-    
-    init(_ url: URL) {
-        self.url = url
-        self.id = url.absoluteString
     }
 }
 

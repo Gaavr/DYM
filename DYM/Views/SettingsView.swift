@@ -5,6 +5,8 @@
 //  Created by Andrei Gavrilenko on 18.12.2025.
 //
 
+import SwiftData
+import StoreKit
 import SwiftUI
 
 struct SettingsView: View {
@@ -19,6 +21,15 @@ struct SettingsView: View {
     private var darkModeRaw: String = DarkModeSettigns.system.rawValue
     
     @Environment(\.openURL) private var openURL
+    @Environment(\.requestReview) private var requestReview
+    private let appStoreID = "1234567890"
+    @Query private var categories: [Category]
+    private let appStoreURL = URL(string: "https://apps.apple.com/app/id6758716185")!
+    
+    @State private var shareAppItem: ShareItem?
+    
+    @State private var showResetSettingsConfirm = false
+    
     
     var body: some View {
         Form {
@@ -84,14 +95,25 @@ struct SettingsView: View {
             }
             Section("settings.feedback") {
                 Button {
-                    
+                    if categories.count >= 5 {
+                        requestReview() // Apple может не показать, это нормально
+                    } else {
+                        if let url = URL(string: "https://apps.apple.com/app/id\(appStoreID)?action=write-review") {
+                            openURL(url)
+                        }
+                    }
                 } label: {
-                    Label("settings.rateApp", systemImage: "star.bubble")
+                    Label("settings.rateApp", systemImage: "star")
                 }
                 Button {
-                    
+                    shareAppItem = ShareItem(appStoreURL)
                 } label: {
                     Label("settings.shareApp", systemImage: "square.and.arrow.up")
+                }
+                .sheet(item: $shareAppItem) { item in
+                    ShareSheet(items: [item.url]) {
+                        shareAppItem = nil
+                    }
                 }
             }
             Section("settings.support") {
