@@ -95,9 +95,8 @@ struct SettingsView: View {
                 }
             }
             Section("settings.support") {
-                //TODO: добавить шаблон для сообщения
                 Button {
-                    if let url = URL(string: "mailto:gavrjob@gmail.com") {
+                    if let url = SupportMail.url(body: SupportMail.defaultBody()) {
                         openURL(url)
                     }
                 } label: {

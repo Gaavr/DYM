@@ -90,3 +90,8 @@
 
 
 "alert.notAvailable" = "Действие недоступно";
+
+//Support message
+"support.mail.greeting" = "Привет!";
+"support.mail.prompt" = "Опиши проблему/идею:";
+"support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";

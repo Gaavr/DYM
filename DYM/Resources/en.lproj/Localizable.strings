@@ -14,9 +14,9 @@
 "settings.messageStyle.footer" = "Positive focuses on rewards and long-term gains. Negative highlights risks and consequences.";
 "settings.appearance" = "Appearance";
 "settings.theme" = "Theme";
-"settings.theme.system" = "System";
-"settings.theme.light" = "Light";
-"settings.theme.dark" = "Dark";
+"settings.theme.System" = "System";
+"settings.theme.Light" = "Light";
+"settings.theme.Dark" = "Dark";
 "settings.system" = "System";
 "settings.language" = "Language";
 "settings.actionButton" = "Action Button";
@@ -92,3 +92,7 @@
 "alert.notAvailable" = "Action not available";
 
 
+//Support message
+"support.mail.greeting" = "Hi!";
+"support.mail.prompt" = "Please describe your issue or idea:";
+"support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";
