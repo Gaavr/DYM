@@ -114,3 +114,13 @@
 
 
 "donate.title" = "Support development";
+
+//Init data
+"category.discipline.name" = "Discipline";
+"category.discipline.desc" = "Your standards determine your future";
+"category.healthy.name" = "Healthy Lifestyle";
+"category.healthy.desc" = "Your health is the foundation of everything you want to build.";
+"category.quitSmoking.name" = "Quit Smoking";
+"category.quitSmoking.desc" = "You control your impulses — not the other way around.";
+"category.sport.name" = "Sport";
+"category.sport.desc" = "You build yourself right now.";

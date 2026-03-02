@@ -30,10 +30,12 @@ struct RootView: View {
     
     @AppStorage(SettingsKeys.darkMode)
     private var themeRaw: String = DarkModeSettigns.system.rawValue
-
+    
     private var theme: DarkModeSettigns {
         DarkModeSettigns(rawValue: themeRaw) ?? .system
     }
+    
+    let seeder = DatabaseSeeder()
     
     var body: some View {
         NavigationStack {
@@ -84,10 +86,8 @@ struct RootView: View {
             
         }
         .onAppear {
-            if !didSeedInitialData {
-                seedInitialData(context: modelContext)
-                didSeedInitialData = true
-            }
+//            seeder.resetSeedFlag()
+            seeder.seed(into: modelContext)
             restoreChosenCategoryIfNeeded()
         }
         .onChange(of: categories.count) {
@@ -113,45 +113,6 @@ struct RootView: View {
             chosenCategory = categories.first
             selectedCategoryId = chosenCategory?.id.uuidString
         }
-    }
-    
-    func seedInitialData(context: ModelContext) {
-        let category = Category(
-            name: "Motivation",
-            categoryDescription: "Default motivation posters",
-            color: .blue,
-            icon: "🔥"
-        )
-        
-        let defaultCategory = Category(
-            name:  String(localized: "common.common"),
-            categoryDescription: String(localized: "category.defaultDescription"),
-            color: .gray,
-            icon: "♾️",
-            isProtected: true
-        )
-        
-        let imageNames = (1...16).map { "img\($0)" }
-        
-        for name in imageNames {
-            guard
-                let uiImage = UIImage(named: name),
-                let data = uiImage.pngData()
-            else { continue }
-            
-            let poster = Poster(
-                imageData: data,
-                motivationIntensity: MotivationIntensity.any,
-                posterType: .image,
-                category: category
-            )
-            
-            category.posters.append(poster)
-            context.insert(poster)
-        }
-        
-        context.insert(category)
-        context.insert(defaultCategory)
     }
 }
 

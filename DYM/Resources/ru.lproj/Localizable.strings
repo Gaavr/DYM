@@ -51,7 +51,6 @@
 "about.howItWorks.title" = "Как это работает";
 "about.howItWorks.text" = "Вы открываете приложение осознанно.\n\nВы видите одно сообщение.\nОдну идею.\nОдин момент ясности.\n\nБез трекинга.\nБез убеждения.\nБез бесконечной прокрутки.\n\nТолько осознанность — когда она нужна.";
 
-
 "quote.new" = "Новая цитата";
 "quote.preview" = "Предпросмотр";
 "quote.quote" = "Цитата";
@@ -71,14 +70,12 @@
 "poster.noPosters" = "Нет постеров";
 "poster.dobavYje" = "Добавьте первый постер";
 
-
 "category.category" = "Категория";
 "category.addCategory" = "Добавить категорию";
 "category.remove" = "Удалить из категории";
 "category.delete" = "Удалить с устройства";
 "category.choose" = "Выберите категорию";
 "category.defaultDescription" = "Изображения без определeнной темы";
-
 
 "common.messageStyle" = "Стиль сообщений";
 "common.save" = "Сохранить";
@@ -115,3 +112,13 @@
 
 //Donate
 "donate.title" = "Поддержать разработку";
+
+// Init data
+"category.discipline.name" = "Дисциплина";
+"category.discipline.desc" = "Твои стандарты определяют твоё будущее.";
+"category.healthy.name" = "Здоровый образ жизни";
+"category.healthy.desc" = "Здоровье — основа всего, что ты хочешь построить.";
+"category.quitSmoking.name" = "Отказ от курения";
+"category.quitSmoking.desc" = "Ты управляешь импульсами, а не они тобой.";
+"category.sport.name" = "Спорт";
+"category.sport.desc" = "Ты строишь себя прямо сейчас.";
