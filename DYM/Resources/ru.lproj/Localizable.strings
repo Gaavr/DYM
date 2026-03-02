@@ -76,6 +76,8 @@
 "category.delete" = "Удалить с устройства";
 "category.choose" = "Выберите категорию";
 "category.defaultDescription" = "Изображения без определeнной темы";
+"category.common.name" = "Общее";
+"category.common.desc" = "Изображения без конкретной темы";
 
 "common.messageStyle" = "Стиль сообщений";
 "common.save" = "Сохранить";
@@ -122,3 +124,6 @@
 "category.quitSmoking.desc" = "Ты управляешь импульсами, а не они тобой.";
 "category.sport.name" = "Спорт";
 "category.sport.desc" = "Ты строишь себя прямо сейчас.";
+
+//footers
+"addPoster.unsplash.footer" = "Интеграция с Unsplash — в работе";

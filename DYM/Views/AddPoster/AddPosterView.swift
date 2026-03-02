@@ -71,6 +71,11 @@ struct AddPosterView: View {
             } label: {
                 BigActionButton(title: "Unsplash", systemImage: "square.and.arrow.down")
             }
+            .disabled(true)
+            Text("addPoster.unsplash.footer")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                
         }
         .sheet(isPresented: $isSaveSheetPresented, onDismiss: { imageData = nil }) {
             SavePosterSheetView(

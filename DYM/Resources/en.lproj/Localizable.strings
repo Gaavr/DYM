@@ -78,6 +78,8 @@
 "category.delete" = "Delete from device";
 "category.choose" = "Choose a category";
 "category.defaultDescription" = "Images without specific theme";
+"category.common.name" = "Common";
+"category.common.desc" = "Images without specific theme";
 
 "common.messageStyle" = "Message style";
 "common.save" = "Save";
@@ -93,6 +95,7 @@
 "common.select" = "Select";
 "common.done" = "Done";
 "common.loading" = "Loading…";
+
 
 //Alerts
 "settings.resetSettings.alert.title" = "Reset settings?";
@@ -124,3 +127,6 @@
 "category.quitSmoking.desc" = "You control your impulses — not the other way around.";
 "category.sport.name" = "Sport";
 "category.sport.desc" = "You build yourself right now.";
+
+//footers
+"addPoster.unsplash.footer" = "Unsplash integration — coming soon";
