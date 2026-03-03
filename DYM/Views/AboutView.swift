@@ -41,17 +41,29 @@ struct AboutView: View {
                     AboutBlockView(title: "about.privacy.title",
                                    text: "about.privacy.text",
                                    systemImage: "lock.shield")
-                    if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-                       let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-                        HStack(spacing: 6) {
-                            Spacer()
-                            Text("version.name")
-                            Text("\(version) (\(build))")
-                            Spacer()
+                    VStack {
+                        HStack {
+                            Text("disclaimer.general")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                                        .fixedSize(horizontal: false, vertical: true)
                         }
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
+                        .padding(20)
+                        
+                        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+                           let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                            HStack(spacing: 6) {
+                                Spacer()
+                                Text("version.name")
+                                Text("\(version) (\(build))")
+                                Spacer()
+                            }
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                        }
                     }
+                    
                 }
             }
         }
