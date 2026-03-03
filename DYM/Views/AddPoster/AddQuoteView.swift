@@ -38,6 +38,8 @@ struct AddQuoteView: View {
         quoteText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
+    private let maxChars = 450;
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -45,6 +47,11 @@ struct AddQuoteView: View {
                     TextEditor(text: $quoteText)
                         .frame(minHeight: 150)
                         .scrollContentBackground(.hidden)
+                        .onChange(of: quoteText) { _, newValue in
+                                if newValue.count > maxChars {
+                                    quoteText = String(newValue.prefix(maxChars))
+                                }
+                            }
                     TextField("quote.author", text: $quoteAuthor)
                 }
                 Section("poster.settings") {
