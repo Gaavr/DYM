@@ -11,29 +11,21 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @AppStorage(SettingsKeys.isRandomOrder)
-    private var isRandomOrder: Bool = false
-    
-    @AppStorage(SettingsKeys.motivationIntensity)
-    private var toneRaw: String = MotivationIntensity.any.rawValue
-    
-    @AppStorage(SettingsKeys.darkMode)
-    private var darkModeRaw: String = DarkModeSettigns.system.rawValue
-    
     @Environment(\.openURL) private var openURL
     @Environment(\.requestReview) private var requestReview
-    private let appStoreID = "6758716185"
+    @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject private var tipStore: TipStore
+    
     @Query private var categories: [Category]
-    private let appStoreURL = URL(string: "https://apps.apple.com/app/id6758716185")!
+    
+    @AppStorage(SettingsKeys.isRandomOrder) private var isRandomOrder: Bool = false
+    @AppStorage(SettingsKeys.motivationIntensity) private var toneRaw: String = MotivationIntensity.any.rawValue
+    @AppStorage(SettingsKeys.darkMode) private var darkModeRaw: String = DarkModeSettigns.system.rawValue
     
     @State private var shareAppItem: ShareItem?
     @State private var showResetSettingsAlert = false
     @State private var showDeleteAllDataAlert = false
     @State private var deleteAllDataError: String?
-    
-    @Environment(\.modelContext) private var modelContext
-    
-    @EnvironmentObject private var tipStore: TipStore
     @State private var showTipError = false
     @State private var showTipsSheet = false
     
@@ -107,7 +99,7 @@ struct SettingsView: View {
                     if categories.count >= 5 {
                         requestReview() // Apple может не показать, это нормально
                     } else {
-                        if let url = URL(string: "https://apps.apple.com/app/id\(appStoreID)?action=write-review") {
+                        if let url = URL(string: AppConstants.appStoreAppReviewURL) {
                             openURL(url)
                         }
                     }
@@ -115,7 +107,11 @@ struct SettingsView: View {
                     Label("settings.rateApp", systemImage: "star")
                 }
                 Button {
-                    shareAppItem = ShareItem(appStoreURL)
+                    if let url = URL(string: AppConstants.appStoreAppURL) {
+                        shareAppItem = ShareItem(url)
+                    } else {
+                        print("Invalid App Store URL")
+                    }
                 } label: {
                     Label("settings.shareApp", systemImage: "square.and.arrow.up")
                 }

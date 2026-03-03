@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor
 enum QuotePosterRenderer {
-
+    
     static func renderPNG(
         text: String,
         author: String,
@@ -21,10 +21,10 @@ enum QuotePosterRenderer {
         radialStart: CGFloat,
         radialEnd: CGFloat
     ) -> Data? {
-
+        
         let size = CGSize(width: 1080, height: 1920)
         let scale: CGFloat = 2
-
+        
         let view = QuotePosterPreviewView(
             text: text,
             author: author,
@@ -37,11 +37,11 @@ enum QuotePosterRenderer {
             radialEnd: radialEnd,
             cornerRadius: 0
         )
-        .frame(width: size.width, height: size.height)
-
+            .frame(width: size.width, height: size.height)
+        
         let renderer = ImageRenderer(content: view)
         renderer.scale = scale
-
+        
         guard let uiImage = renderer.uiImage else { return nil }
         return uiImage.pngData()
     }

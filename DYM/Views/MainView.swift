@@ -14,9 +14,33 @@ struct MainView: View {
     
     @Query private var posters: [Poster]
     
+    @AppStorage(SettingsKeys.isRandomOrder) private var isRandomOrder: Bool = false
+    @AppStorage(SettingsKeys.motivationIntensity) private var toneRaw: String = MotivationIntensity.any.rawValue
+    
+    @State private var orderedPosters: [Poster] = []
     @State private var virtualPosition: Int? = nil
+    
     private let virtualSlotsAmount = 10000
     private let recenterTriggerDistance = 1500
+    
+    private var displayedPosters: [Poster] {
+        isRandomOrder ? orderedPosters : filteredPosters
+    }
+    
+    private var tone: MotivationIntensity {
+        MotivationIntensity(rawValue: toneRaw) ?? .any
+    }
+    
+    private var filteredPosters: [Poster] {
+        switch tone {
+        case .any:
+            return posters
+        case .positive:
+            return posters.filter { $0.motivationIntensity == .positive }
+        case .negative:
+            return posters.filter { $0.motivationIntensity == .negative }
+        }
+    }
     
     init(category: Binding<Category?>) {
         self._category = category
@@ -27,32 +51,6 @@ struct MainView: View {
                 selectedID != nil && poster.category.id == selectedID!
             }
         )
-    }
-    
-    @AppStorage(SettingsKeys.isRandomOrder)
-    private var isRandomOrder: Bool = false
-    @State private var orderedPosters: [Poster] = []
-    
-    private var displayedPosters: [Poster] {
-        isRandomOrder ? orderedPosters : filteredPosters
-    }
-    
-    @AppStorage(SettingsKeys.motivationIntensity)
-    private var toneRaw: String = MotivationIntensity.any.rawValue
-    
-    private var tone: MotivationIntensity {
-        MotivationIntensity(rawValue: toneRaw) ?? .any
-    }
-
-    private var filteredPosters: [Poster] {
-        switch tone {
-        case .any:
-            return posters
-        case .positive:
-            return posters.filter { $0.motivationIntensity == .positive }
-        case .negative:
-            return posters.filter { $0.motivationIntensity == .negative }
-        }
     }
     
     var body: some View {
@@ -111,7 +109,7 @@ struct MainView: View {
             return
         }
         let center = virtualSlotsAmount / 2
-        //withTransaction(Transaction( чтобы с анимацией в центр не поехать
+        //withTransaction(Transaction - чтобы с анимацией в центр не поехать
         withTransaction(Transaction(animation: nil)) {
             virtualPosition = center
         }
@@ -123,7 +121,6 @@ struct MainView: View {
         if currentVirtualIndex < recenterTriggerDistance || currentVirtualIndex > (virtualSlotsAmount - recenterTriggerDistance) {
             let real = wrappedIndex(for: currentVirtualIndex, itemCount: displayedPosters.count)
             let recentered = center + real
-            
             if recentered != currentVirtualIndex {
                 withTransaction(Transaction(animation: nil)) {
                     virtualPosition = recentered

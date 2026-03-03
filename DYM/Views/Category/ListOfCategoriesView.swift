@@ -14,6 +14,7 @@ struct ListOfCategoriesView: View {
     
     //TODO: Сделать сортировку и вынести дефолтную категорию вниз
     @Query var categories: [Category]
+    
     @State private var selectedCategory: Category?
     @State private var showProtectedAlert = false
     
@@ -33,7 +34,7 @@ struct ListOfCategoriesView: View {
                             } label: {
                                 Label("common.delete", systemImage: "trash")
                             }
-
+                            
                             NavigationLink {
                                 CategoryDetailView(category: category)
                             } label: {
@@ -59,7 +60,7 @@ struct ListOfCategoriesView: View {
                     Image(systemName: "plus")
                 }
             }
-        } //TODO: Ток на текст нажимается при переходе к изображениям
+        }
         .navigationDestination(item: $selectedCategory) { category in
             ImagesGalleryView(category: category, categories: categories)
         }

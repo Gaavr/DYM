@@ -12,17 +12,15 @@ import PhotosUI
 struct AddPosterView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State private var imageData: Data?
     @State private var isSaveSheetPresented = false
-    
-    var categories: [Category]
     @State private var choosenCategory: Category?
     @State private var tone: MotivationIntensity = .any
     
-    @Environment(\.modelContext) private var modelContext
-    
+    var categories: [Category]
     
     init(categories: [Category], defaultCategory: Category? = nil) {
         self.categories = categories
@@ -54,10 +52,10 @@ struct AddPosterView: View {
             }
             NavigationLink {
                 AddQuoteView(
-                    categories: categories,
-                    isReady: true,
                     chosenCategory: $choosenCategory,
                     tone: $tone,
+                    categories: categories,
+                    isReady: true,
                     onFinished: { dismiss() }
                 )
             } label: {
@@ -79,12 +77,12 @@ struct AddPosterView: View {
         }
         .sheet(isPresented: $isSaveSheetPresented, onDismiss: { imageData = nil }) {
             SavePosterSheetView(
-                categories: categories,
-                imageData: imageData,
-                isReady: imageData != nil,
                 isPresented: $isSaveSheetPresented,
                 chosenCategory: $choosenCategory,
                 tone: $tone,
+                categories: categories,
+                imageData: imageData,
+                isReady: imageData != nil,
                 onSave: { category, tone in
                     savePoster(
                         imageData: imageData,
@@ -139,6 +137,6 @@ struct BigActionButton: View {
 
 #Preview {
     NavigationStack {
-        AddPosterView(categories: [.example,  .example2])
+        AddPosterView(categories: [.example,  .example])
     }
 }

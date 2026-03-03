@@ -10,10 +10,20 @@ import SwiftUI
 
 struct ImagesGalleryView: View {
     
+    @Environment(\.editMode) private var editMode
+    
+    @Query private var posters: [Poster]
+    
+    @State var showAddSheet: Bool = false
+    
     var currentCategory: Category
     var categories: [Category]
     
-    @Query private var posters: [Poster]
+    private let columns = [
+        GridItem(.flexible(), spacing: 6),
+        GridItem(.flexible(), spacing: 6),
+        GridItem(.flexible(), spacing: 6)
+    ]
     
     init(category: Category, categories: [Category]) {
         self.currentCategory = category
@@ -28,17 +38,6 @@ struct ImagesGalleryView: View {
         
         self.categories = categories
     }
-    
-    @Environment(\.editMode) private var editMode
-    
-    @State var showAddSheet: Bool = false
-    
-    private let columns = [
-        GridItem(.flexible(), spacing: 6),
-        GridItem(.flexible(), spacing: 6),
-        GridItem(.flexible(), spacing: 6)
-    ]
-    
     
     var body: some View {
         NavigationStack {
@@ -91,7 +90,7 @@ struct ImagesGalleryView: View {
                     }
                 }
             }
-           
+            
         }
     }
     

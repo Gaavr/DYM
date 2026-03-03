@@ -18,7 +18,7 @@ class Poster {
     var posterType: PosterType
     var category: Category
     var createdAt: Date
-
+    
     init(
         id: UUID = UUID(),
         imageData: Data?,

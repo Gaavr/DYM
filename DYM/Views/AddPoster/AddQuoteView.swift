@@ -10,16 +10,15 @@ import SwiftUI
 
 struct AddQuoteView: View {
     
-    let categories: [Category]
-    let isReady: Bool
-    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    
+    @Binding var chosenCategory: Category?
+    @Binding var tone: MotivationIntensity
     
     @State private var quoteText: String = ""
     @State private var quoteAuthor: String = ""
     @State private var quoteBackground: UIImage?
-    
     @State private var bgColor1: Color = .indigo
     @State private var bgColor2: Color = .black
     @State private var bgColor3: Color = .purple
@@ -28,17 +27,15 @@ struct AddQuoteView: View {
     @State private var radialStart: CGFloat = 20
     @State private var radialEnd: CGFloat = 1200
     
-    @Binding var chosenCategory: Category?
-    @Binding var tone: MotivationIntensity
-    
+    let categories: [Category]
+    let isReady: Bool
     let onFinished: () -> Void
+    private let maxChars = 450;
     
     private var isSaveDisabled: Bool {
         chosenCategory == nil ||
         quoteText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
-    
-    private let maxChars = 450;
     
     var body: some View {
         NavigationStack {
@@ -48,10 +45,10 @@ struct AddQuoteView: View {
                         .frame(minHeight: 150)
                         .scrollContentBackground(.hidden)
                         .onChange(of: quoteText) { _, newValue in
-                                if newValue.count > maxChars {
-                                    quoteText = String(newValue.prefix(maxChars))
-                                }
+                            if newValue.count > maxChars {
+                                quoteText = String(newValue.prefix(maxChars))
                             }
+                        }
                     TextField("quote.author", text: $quoteAuthor)
                 }
                 Section("poster.settings") {
@@ -121,10 +118,9 @@ struct AddQuoteView: View {
         }
     }
     
-    @MainActor
     private func saveQuotePoster() {
         guard let category = chosenCategory else { return }
-
+        
         let png = QuotePosterRenderer.renderPNG(
             text: quoteText,
             author: quoteAuthor,
@@ -136,16 +132,16 @@ struct AddQuoteView: View {
             radialStart: radialStart,
             radialEnd: radialEnd
         )
-
+        
         guard let png else { return }
-
+        
         let poster = Poster(
             imageData: png,
             motivationIntensity: tone,
             posterType: .quote,
             category: category
         )
-
+        
         modelContext.insert(poster)
         dismiss()
         onFinished()
@@ -170,20 +166,21 @@ struct AddQuoteView: View {
 
 #Preview {
     struct PreviewWrapper: View {
-        @State var chosen: Category? = .example
-                @State var tone: MotivationIntensity = .any
-
-                var body: some View {
-                    NavigationStack {
-                        AddQuoteView(
-                            categories: [.example, .example],
-                            isReady: true,
-                            chosenCategory: $chosen,
-                            tone: $tone,
-                            onFinished: {}
-                        )
-                    }
-                }
+        @State private var chosen: Category? = .example
+        @State private var tone: MotivationIntensity = .any
+        
+        var body: some View {
+            NavigationStack {
+                AddQuoteView(
+                    chosenCategory: $chosen,
+                    tone: $tone,
+                    categories: [.example, .example],
+                    isReady: true,
+                    onFinished: {}
+                )
             }
+        }
+    }
+    
     return PreviewWrapper()
 }

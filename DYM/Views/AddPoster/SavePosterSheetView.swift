@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct SavePosterSheetView: View {
-    let categories: [Category]
-    let imageData: Data?
-    let isReady: Bool
     
     @Binding var isPresented: Bool
     @Binding var chosenCategory: Category?
     @Binding var tone: MotivationIntensity
     
+    let categories: [Category]
+    let imageData: Data?
+    let isReady: Bool
     let onSave: (Category, MotivationIntensity) -> Void
     
     var body: some View {

@@ -141,4 +141,7 @@
 // Privacy
 "about.privacy.title" = "Privacy";
 "about.privacy.text" = "All data is stored locally on your device.\nThe app does not use servers and does not collect personal information.\nNo account required.\n\nYou stay in full control of your data.";
+
+//Version
+"version.name" = "Version";
 //----------------------------------------------------------------------------------------------------//

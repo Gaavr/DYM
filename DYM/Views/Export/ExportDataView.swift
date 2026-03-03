@@ -10,14 +10,15 @@ import SwiftUI
 import UIKit
 
 struct ExportDataView: View {
+    
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    
     @Query private var categories: [Category]
     
     @State private var selectedCategory: Category?
     @State private var shareItem: ShareItem?
     @State private var exportError: String?
-    
-    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         Form {

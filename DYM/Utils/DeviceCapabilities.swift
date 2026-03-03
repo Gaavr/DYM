@@ -24,7 +24,8 @@ enum DeviceCapabilities {
         "iPhone 17": "iPhone18,3",
         "iPhone 17 Pro": "iPhone18,1",
         "iPhone 17 Pro Max": "iPhone18,2",
-        "iPhone Air": "iPhone18,4"
+        "iPhone Air": "iPhone18,4",
+        "iPhone 17e": "iPhone18,5" //но это не точно
     ]
     
     

@@ -17,26 +17,26 @@ struct CategoryItemInListView: View {
                 Circle()
                     .fill(category.getColor())
                     .frame(width: 32, height: 32)
-
+                
                 Text(category.icon)
                     .font(.system(size: 16, weight: .semibold))
             }
-
+            
             VStack(alignment: .leading, spacing: 2) {
                 Text(category.name)
                     .font(.body.weight(.semibold))
                     .foregroundStyle(.primary)
                     .lineLimit(1)
-
+                
                 if !category.categoryDescription.isEmpty {
                     Text(category.categoryDescription)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
                 }
-
+                
             }
-
+            
             Spacer(minLength: 0)
         }
         .padding(.horizontal, 10)

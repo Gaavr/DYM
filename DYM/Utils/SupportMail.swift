@@ -9,25 +9,24 @@
 import Foundation
 
 enum SupportMail {
-    static let to = "gavrjob@gmail.com"
     static let subject = "DYM — Support"
-
+    
     static func url(body: String) -> URL? {
         var c = URLComponents()
         c.scheme = "mailto"
-        c.path = to
+        c.path = AppConstants.supportEmail
         c.queryItems = [
             .init(name: "subject", value: subject),
             .init(name: "body", value: body)
         ]
         return c.url
     }
-
+    
     static func defaultBody() -> String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?"
         let iOS = ProcessInfo.processInfo.operatingSystemVersionString
-
+        
         let greeting = NSLocalizedString("support.mail.greeting", comment: "")
         let prompt = NSLocalizedString("support.mail.prompt", comment: "")
         let footer = String(

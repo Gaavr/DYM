@@ -18,7 +18,7 @@ extension String {
         case "yellow": return .yellow
         case "gray":   return .gray
         default:
-            print("⚠️ DatabaseSeeder: неизвестный цвет '\(self)', используем .gray")
+            print("DatabaseSeeder: unknown color '\(self)'. Fallback: .gray")
             return .gray
         }
     }

@@ -14,15 +14,15 @@ final class TipStore: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
-
+    
     private let productIDs: [String] = [
         "support.basic",
         "support.extended",
         "support.maximum"
     ]
-
+    
     private var updatesTask: Task<Void, Never>?
-
+    
     func startListening() {
         guard updatesTask == nil else { return }
         updatesTask = Task {
@@ -36,21 +36,21 @@ final class TipStore: ObservableObject {
             }
         }
     }
-
+    
     func stopListening() {
         updatesTask?.cancel()
         updatesTask = nil
     }
-
+    
     deinit {
         updatesTask?.cancel()
     }
-
+    
     func load() async {
         guard products.isEmpty else { return }
         isLoading = true
         defer { isLoading = false }
-
+        
         do {
             let loaded = try await Product.products(for: productIDs)
             products = loaded.sorted { $0.price < $1.price }
@@ -58,21 +58,21 @@ final class TipStore: ObservableObject {
             errorMessage = error.localizedDescription
         }
     }
-
+    
     
     func buy(_ product: Product) async -> Bool {
         do {
             let result = try await product.purchase()
-
+            
             switch result {
             case .success(let verification):
                 let transaction = try verified(verification)
                 await transaction.finish()
                 return true
-
+                
             case .userCancelled, .pending:
                 return false
-
+                
             @unknown default:
                 return false
             }
@@ -81,7 +81,7 @@ final class TipStore: ObservableObject {
             return false
         }
     }
-
+    
     private func verified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
         case .verified(let safe):

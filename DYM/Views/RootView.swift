@@ -10,32 +10,25 @@ import SwiftUI
 
 struct RootView: View {
     
-    @AppStorage(SettingsKeys.didSeedInitialData)
-    private var didSeedInitialData = false
+    @Environment(\.modelContext) private var modelContext: ModelContext
     
-    @Environment(\.modelContext)
-    private var modelContext: ModelContext
+    @Query var categories: [Category]
     
-    enum TabId: Hashable {
-        case main, about, settings
-    }
+    @AppStorage(SettingsKeys.didSeedInitialData) private var didSeedInitialData = false
+    @AppStorage(SettingsKeys.rootViewSelectedCategoryId) private var selectedCategoryId: String?
+    @AppStorage(SettingsKeys.darkMode) private var themeRaw: String = DarkModeSettigns.system.rawValue
     
     @State private var selectedTab: TabId = .main
     @State var showAddSheet: Bool = false
-    @Query var categories: [Category]
     @State private var chosenCategory: Category?
     
-    @AppStorage(SettingsKeys.rootViewSelectedCategoryId)
-    private var selectedCategoryId: String?
-    
-    @AppStorage(SettingsKeys.darkMode)
-    private var themeRaw: String = DarkModeSettigns.system.rawValue
-    
+    let seeder = DatabaseSeeder()
+    enum TabId: Hashable {
+        case main, about, settings
+    }
     private var theme: DarkModeSettigns {
         DarkModeSettigns(rawValue: themeRaw) ?? .system
     }
-    
-    let seeder = DatabaseSeeder()
     
     var body: some View {
         NavigationStack {
@@ -47,7 +40,7 @@ struct RootView: View {
                 }
                 Tab("Settings", systemImage: "gearshape.fill", value: TabId.settings) {
                     SettingsView()
-                        .labelStyle(.titleAndIcon) //TODO: Костыль?
+                        .labelStyle(.titleAndIcon)
                 }
             }
             .toolbar {
@@ -86,7 +79,6 @@ struct RootView: View {
             
         }
         .onAppear {
-//            seeder.resetSeedFlag()
             seeder.seed(into: modelContext)
             restoreChosenCategoryIfNeeded()
         }

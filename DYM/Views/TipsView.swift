@@ -10,15 +10,15 @@ import StoreKit
 
 struct TipsView: View {
     @Environment(\.dismiss) private var dismiss
+    
     @ObservedObject var tipStore: TipStore
-
+    
     var body: some View {
         NavigationStack {
             List {
                 if tipStore.isLoading {
                     ProgressView("common.loading")
                 }
-
                 ForEach(tipStore.products, id: \.id) { product in
                     Button {
                         Task {
@@ -37,7 +37,6 @@ struct TipsView: View {
                         }
                     }
                 }
-
                 if let error = tipStore.errorMessage {
                     Text(error)
                         .foregroundStyle(.red)

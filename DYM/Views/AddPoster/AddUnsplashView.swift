@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AddUnsplashView: View {
     let onPick: (Data) -> Void
-
-        var body: some View {
-            Text("Unsplash")
-        }
+    
+    var body: some View {
+        Text("Unsplash")
+    }
 }
 
 #Preview {

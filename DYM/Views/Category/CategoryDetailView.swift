@@ -9,20 +9,20 @@ import SwiftUI
 import SwiftData
 
 struct CategoryDetailView: View {
-
-    let category: Category?
     
-    init(category: Category? = nil) {
-        self.category = category
-    }
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     
     @State private var name: String = ""
     @State private var desctiption: String = ""
     @State private var color: Color = .gray
     @State private var icon: String = ""
     
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
+    private let category: Category?
+    
+    init(category: Category? = nil) {
+        self.category = category
+    }
     
     var body: some View {
         Form {
