@@ -116,11 +116,6 @@ struct SettingsView: View {
                     Label("settings.shareApp", systemImage: "square.and.arrow.up")
                 }
             }
-            .sheet(item: $shareAppItem) { item in
-                ShareSheet(items: [item.url]) {
-                    shareAppItem = nil
-                }
-            }
             //MARK: -Support
             Section("settings.support") {
                 Button {
@@ -180,6 +175,11 @@ struct SettingsView: View {
             }
         }
         .foregroundStyle(.primary)
+        .sheet(item: $shareAppItem) { item in
+            ShareSheet(items: [item.url]) {
+                shareAppItem = nil
+            }
+        }
     }
     
     private func resetSettings() {
