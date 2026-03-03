@@ -30,7 +30,8 @@ struct AddQuoteView: View {
     let categories: [Category]
     let isReady: Bool
     let onFinished: () -> Void
-    private let maxChars = 450;
+    private let maxQuoteChars = 450;
+    private let maxAuthorChars = 50;
     
     private var isSaveDisabled: Bool {
         chosenCategory == nil ||
@@ -45,11 +46,16 @@ struct AddQuoteView: View {
                         .frame(minHeight: 150)
                         .scrollContentBackground(.hidden)
                         .onChange(of: quoteText) { _, newValue in
-                            if newValue.count > maxChars {
-                                quoteText = String(newValue.prefix(maxChars))
+                            if newValue.count > maxQuoteChars {
+                                quoteText = String(newValue.prefix(maxQuoteChars))
                             }
                         }
                     TextField("quote.author", text: $quoteAuthor)
+                        .onChange(of: quoteAuthor) { _, newValue in
+                            if newValue.count > maxAuthorChars {
+                                quoteAuthor = String(newValue.prefix(maxAuthorChars))
+                            }
+                        }
                 }
                 Section("poster.settings") {
                     Picker("common.messageStyle", selection: $tone) {

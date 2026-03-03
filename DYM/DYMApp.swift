@@ -10,15 +10,17 @@ import SwiftUI
 
 @main
 struct DYMApp: App {
+
     @StateObject private var tipStore = TipStore()
-    
+
+    init() {
+        tipStore.startListening()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(tipStore)
-                .task {
-                    tipStore.startListening()
-                }
         }
         .modelContainer(for: Category.self)
     }

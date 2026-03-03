@@ -34,6 +34,11 @@ struct CategoryDetailView: View {
                 TextField("common.description", text: $desctiption)
                 ColorPicker("common.color", selection: $color)
                 TextField("common.icon", text: $icon)
+                    .onChange(of: icon) { _, newValue in
+                        if newValue.count > 1, let first = newValue.first {
+                            icon = String(first)
+                        }
+                    }
             }
             Section {
                 Button {
