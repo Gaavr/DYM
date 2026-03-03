@@ -79,27 +79,23 @@ struct ListOfCategoriesView: View {
         for: Category.self,
         configurations: ModelConfiguration(isStoredInMemoryOnly: true)
     )
-    
     let context = container.mainContext
-    
     context.insert(
         Category(
             name: "Gym",
-            categoryDescription: "Ходить в зал",
-            color: .blue,
+            categoryDescription: "Stronger than yesterday.",
+            color: .red,
             icon: "🏋️‍♀️"
         )
     )
-    
     context.insert(
         Category(
             name: "Focus",
-            categoryDescription: "Работа без отвлечений",
-            color: .purple,
-            icon: "🧠"
+            categoryDescription: "Deep work. No distractions.",
+            color: .blue,
+            icon: "🌱"
         )
     )
-    
     return NavigationStack {
         ListOfCategoriesView()
     }

@@ -67,10 +67,9 @@ struct MainView: View {
                         ForEach(0..<virtualSlotsAmount, id: \.self) { vIndex in
                             displayedPosters[wrappedIndex(for: vIndex, itemCount: displayedPosters.count)].image
                                 .resizable()
-                                .scaledToFit() //TODO: надо дать выбор пользователю
+                                .scaledToFit() //TODO: дать выбор пользователю
                                 .containerRelativeFrame(.horizontal)
                                 .scrollTargetLayout()
-                            
                         }
                     }
                 }
@@ -105,7 +104,7 @@ struct MainView: View {
         }
     }
     
-    // MARK: Для бесконечного скрола
+    // MARK: - infinity scroll
     private func resetToCenter() {
         guard displayedPosters.count > 0 else {
             virtualPosition = nil
@@ -122,9 +121,7 @@ struct MainView: View {
         let center = virtualSlotsAmount / 2
         
         if currentVirtualIndex < recenterTriggerDistance || currentVirtualIndex > (virtualSlotsAmount - recenterTriggerDistance) {
-            //какой реальный постер сейчас
             let real = wrappedIndex(for: currentVirtualIndex, itemCount: displayedPosters.count)
-            //переносим в центр, сохранив реальный индекс
             let recentered = center + real
             
             if recentered != currentVirtualIndex {
@@ -135,7 +132,6 @@ struct MainView: View {
         }
     }
     
-    //получаем реальный индекс из виртуального
     private func wrappedIndex(for rawIndex: Int, itemCount: Int) -> Int {
         precondition(itemCount > 0, "itemCount must be > 0")
         
@@ -153,13 +149,5 @@ struct MainView: View {
 }
 
 #Preview {
-    let common = Category(
-        name: "Common",
-        categoryDescription: "Default category",
-        color: .gray,
-        icon: "♾️",
-        isProtected: true
-    )
-    
-    MainView(category: .constant(common))
+    MainView(category: .constant(.example))
 }

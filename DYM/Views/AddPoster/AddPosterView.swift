@@ -138,22 +138,7 @@ struct BigActionButton: View {
 }
 
 #Preview {
-    let previewCategories = [
-        Category(
-            name: "Motivation",
-            categoryDescription: "Daily motivation",
-            color: .blue,
-            icon: "🔥"
-        ),
-        Category(
-            name: "Gym",
-            categoryDescription: "Workout posters",
-            color: .red,
-            icon: "💪"
-        )
-    ]
-    
     NavigationStack {
-        AddPosterView(categories: previewCategories)
+        AddPosterView(categories: [.example,  .example2])
     }
 }

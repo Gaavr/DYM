@@ -45,3 +45,27 @@ class Category {
         )
     }
 }
+
+extension Category {
+    static var example: Category {
+        Category(
+            name: "Common",
+            categoryDescription: "Default category",
+            color: .gray,
+            icon: "♾️",
+            isProtected: true
+        )
+    }
+}
+
+extension Category {
+    static var example2: Category {
+        Category(
+            name: "Second Category",
+            categoryDescription: "Second category",
+            color: .red,
+            icon: "🐭",
+            isProtected: false
+        )
+    }
+}

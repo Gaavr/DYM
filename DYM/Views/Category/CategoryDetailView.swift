@@ -60,7 +60,6 @@ struct CategoryDetailView: View {
                 .disabled(name.isEmpty)
             }
         }
-        //TODO: КУСОР РЕДАКТИРОВАНИЯ ПРОВЕРИТЬ
         .onAppear {
             guard let category else { return }
             name = category.name

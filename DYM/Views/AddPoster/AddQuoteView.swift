@@ -170,41 +170,20 @@ struct AddQuoteView: View {
 
 #Preview {
     struct PreviewWrapper: View {
-        @State private var chosenCategory: Category? = Category(
-            name: "Motivation",
-            categoryDescription: "Daily motivation",
-            color: .blue,
-            icon: "🔥"
-        )
-        @State private var tone: MotivationIntensity = .any
+        @State var chosen: Category? = .example
+                @State var tone: MotivationIntensity = .any
 
-        private let categories: [Category] = [
-            Category(
-                name: "Motivation",
-                categoryDescription: "Daily motivation",
-                color: .blue,
-                icon: "🔥"
-            ),
-            Category(
-                name: "Gym",
-                categoryDescription: "Workout posters",
-                color: .red,
-                icon: "💪"
-            )
-        ]
-
-        var body: some View {
-            NavigationStack {
-                AddQuoteView(
-                    categories: categories,
-                    isReady: true,
-                    chosenCategory: $chosenCategory,
-                    tone: $tone,
-                    onFinished: { }
-                )
+                var body: some View {
+                    NavigationStack {
+                        AddQuoteView(
+                            categories: [.example, .example],
+                            isReady: true,
+                            chosenCategory: $chosen,
+                            tone: $tone,
+                            onFinished: {}
+                        )
+                    }
+                }
             }
-        }
-    }
-
     return PreviewWrapper()
 }

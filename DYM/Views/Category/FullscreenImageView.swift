@@ -30,6 +30,7 @@ struct FullscreenImageView: View {
             poster.image
                 .resizable()
                 .scaledToFit()
+                .padding(10)
         }
         .toolbar {
             Button {
@@ -60,3 +61,4 @@ struct FullscreenImageView: View {
         }
     }
 }
+

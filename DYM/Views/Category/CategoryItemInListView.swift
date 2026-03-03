@@ -45,5 +45,5 @@ struct CategoryItemInListView: View {
 }
 
 #Preview {
-    CategoryItemInListView(category: Category(name: "Gym", categoryDescription: "Мотивация ходить в зал", color: .blue, icon: "🏋️‍♀️"))
+    CategoryItemInListView(category: .example)
 }

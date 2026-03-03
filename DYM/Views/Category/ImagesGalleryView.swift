@@ -93,30 +93,15 @@ struct ImagesGalleryView: View {
             }
            
         }
-//        .onAppear { print("ImagesInCategoryView APPEAR") }
-//        .onDisappear { print("ImagesInCategoryView DISAPPEAR") }
     }
     
 }
 
 #Preview {
-    let catGym = Category(
-        name: "Gym",
-        categoryDescription: "Description",
-        color: .red,
-        icon: "💪"
-    )
-
-    let catMotivation = Category(
-        name: "Motivation",
-        categoryDescription: "Daily motivation",
-        color: .blue,
-        icon: "🔥"
-    )
-
-    let all = [catGym, catMotivation]
-
-    return NavigationStack {
-        ImagesGalleryView(category: catGym, categories: all)
+    NavigationStack {
+        ImagesGalleryView(
+            category: .example,
+            categories: [.example, .example2]
+        )
     }
 }
