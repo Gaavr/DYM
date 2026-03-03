@@ -6,7 +6,7 @@
   
 */
 
-/* Settings */
+// Settings
 "settings.content" = "Content";
 "settings.categories" = "Categories";
 "settings.randomOrder" = "Random cards order";
@@ -25,7 +25,6 @@
 "settings.exportData" = "Export data";
 "settings.feedback" = "Feedback";
 "settings.rateApp" = "Rate app";
-"settings.shareApp" = "Share app";
 "settings.support" = "Support";
 "settings.buyCoffee" = "Buy me a coffee";
 "settings.warning" = "Warning";
@@ -39,18 +38,7 @@
 "settings.deleteAllData.alert.message" = "This will delete all posters and all categories except the built-in category. This action cannot be undone.";
 "settings.deleteAllData.alert.action" = "Delete";
 "settings.deleteAllData.alert.failed.title" = "Delete failed";
-
-/* About */
-"about.appTitle" = "Dominate Your Mind";
-"about.awareness.title" = "You Are Not Your Thoughts";
-"about.awareness.text" = "The mind generates thoughts automatically.\nMost of them arise without intention or choice.\n\nThoughts are events — not commands.\nYou do not have to follow them.\n\nAwareness begins the moment you notice\nwhat your mind is doing.";
-"about.interruption.title" = "Breaking Autopilot";
-"about.interruption.text" = "Most mental struggles happen on autopilot.\n\nThis app creates a deliberate interruption —\na pause between impulse and reaction.\n\nThat pause is where choice becomes possible.";
-"about.philosophy.title" = "Design Philosophy";
-"about.philosophy.text" = "Simplicity is intentional.\n\nThe brain processes less information more deeply.\nThat is why this app avoids feeds, streaks, and noise.\n\nEvery element exists for one purpose:\nto reduce friction between awareness and action.";
-"about.howItWorks.title" = "How It Works";
-"about.howItWorks.text" = "You open the app by choice.\n\nYou see one message.\nOne idea.\nOne moment of clarity.\n\nNo tracking.\nNo persuasion.\nNo endless scrolling.\n\nJust awareness — when you need it.";
-
+//----------------------------------------------------------------------------------------------------
 
 "quote.new" = "New quote";
 "quote.preview" = "Preview";
@@ -70,7 +58,6 @@
 "poster.chooseWhatDo" = "Choose what you want to do with this photo";
 "poster.noPosters" = "No posters";
 "poster.dobavYje" = "Add your first poster";
-
 
 "category.category" = "Category";
 "category.addCategory" = "Add Category";
@@ -96,29 +83,32 @@
 "common.done" = "Done";
 "common.loading" = "Loading…";
 
-
-//Alerts
+// Alerts
 "settings.resetSettings.alert.title" = "Reset settings?";
 "settings.resetSettings.alert.message" = "This will restore the default settings for the app.";
 "settings.resetSettings.alert.action" = "Reset";
+//----------------------------------------------------------------------------------------------------
 
-//Support message
+// Support message
 "support.mail.greeting" = "Hi!";
 "support.mail.prompt" = "Please describe your issue or idea:";
 "support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";
+//----------------------------------------------------------------------------------------------------
 
-//Export
+// Export
 "export.nav.title" = "Export Data";
 "export.section.header" = "Export";
 "export.section.footer" = "Creates a ZIP archive with all posters from the selected category. You can save it to Files or share it to any app.";
 "export.button.title" = "Export data";
 "export.alert.failed.title" = "Export failed";
 "common.ok" = "OK";
+//----------------------------------------------------------------------------------------------------
 
-
+// Donate
 "donate.title" = "Support development";
+//----------------------------------------------------------------------------------------------------
 
-//Init data
+// Init data
 "category.discipline.name" = "Discipline";
 "category.discipline.desc" = "Your standards determine your future";
 "category.healthy.name" = "Healthy Lifestyle";
@@ -127,6 +117,28 @@
 "category.quitSmoking.desc" = "You control your impulses — not the other way around.";
 "category.sport.name" = "Sport";
 "category.sport.desc" = "You build yourself right now.";
+//----------------------------------------------------------------------------------------------------
 
-//footers
+// Footers
 "addPoster.unsplash.footer" = "Unsplash integration — coming soon";
+//----------------------------------------------------------------------------------------------------
+
+// About
+"about.appTitle" = "Dominate Your Mind";
+
+// Awareness
+"about.awareness.title" = "What is it?";
+"about.awareness.text" = "Dominate Your Mind is a tool for managing what shapes your decisions.\n\nThe app presents selected images and messages you choose, creating a stable focus on your long-term goals.\n\nThis is not motivation.\nIt’s a system for intentional attention control.";
+
+// Why it matters
+"about.interruption.title" = "Why does it matter?";
+"about.interruption.text" = "Behavior depends on frequently activated cognitive patterns.\n\nRepetition strengthens neural pathways and lowers their activation threshold.\nImages that regularly enter your field of attention gain priority in decision-making.\n\nIf you don’t choose what fills your attention, the environment will.\n\nDominate Your Mind gives you a tool to actively shape that cognitive context.";
+
+// How it works
+"about.howItWorks.title" = "How it works";
+"about.howItWorks.text" = "You choose the images.\nThey repeatedly enter your field of attention.\nThis influences your next decision.\n\nThe app is a tool for controlling incoming stimuli.";
+
+// Privacy
+"about.privacy.title" = "Privacy";
+"about.privacy.text" = "All data is stored locally on your device.\nThe app does not use servers and does not collect personal information.\nNo account required.\n\nYou stay in full control of your data.";
+//----------------------------------------------------------------------------------------------------//

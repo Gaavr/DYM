@@ -16,19 +16,21 @@ struct AboutBlockView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             ZStack {
-                RoundedRectangle(cornerRadius: 17)
-                    .fill(Color.black)
-                    .frame(width: 72, height: 72)
-                Image(systemName: systemImage)
-                    .font(.system(size: 30))
-                    .foregroundStyle(.white)
-            }
+                   RoundedRectangle(cornerRadius: 12)
+                       .fill(Color.black)
+                       .frame(width: 44, height: 44)
+                   Image(systemName: systemImage)
+                       .resizable()
+                       .scaledToFit()
+                       .frame(width: 24, height: 24)
+                       .foregroundStyle(.white)
+               }
             VStack(alignment: .leading, spacing: 5) {
                 Text(title)
                     .font(.headline)
                 Text(text)
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(.horizontal, 20)
@@ -37,6 +39,6 @@ struct AboutBlockView: View {
     }
 }
 
-#Preview {
-    AboutBlockView(title: "Mental Discipline", text: AboutText.awarenessText, systemImage: "brain")
-}
+//#Preview {
+//    AboutBlockView(title: "Mental Discipline", text: AboutText.awarenessText, systemImage: "brain")
+//}

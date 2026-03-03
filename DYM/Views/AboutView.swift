@@ -20,29 +20,29 @@ struct AboutView: View {
                         .frame(width: 72, height: 72)
                         .cornerRadius(16)
                         .padding(20)
-                    Text(AboutText.appTitle)
+                    Text("about.appTitle")
                         .font(.largeTitle)
                 }
+                .padding(10)
                 
                 Divider()
                     .padding(.horizontal, 30)
                     .padding(.bottom, 30)
                 
                 VStack(alignment: .leading) {
-                    AboutBlockView(title:  AboutText.awarenessTitle,
-                                   text: AboutText.awarenessText,
-                                   systemImage: AboutText.awarenessSymbol)
-                    AboutBlockView(title: AboutText.interruptionTitle,
-                                   text: AboutText.interruptionText,
-                                   systemImage: AboutText.interruptionSymbol)
-                    AboutBlockView(title: AboutText.philosophyTitle,
-                                   text: AboutText.philosophyText,
-                                   systemImage: AboutText.philosophySymbol)
-                    AboutBlockView(title: AboutText.howItWorksTitle,
-                                   text: AboutText.howItWorksText,
-                                   systemImage: AboutText.howItWorksSymbol)
+                    AboutBlockView(title: "about.awareness.title",
+                                   text: "about.awareness.text",
+                                   systemImage: "eye")
+                    AboutBlockView(title: "about.interruption.title",
+                                   text: "about.interruption.text",
+                                   systemImage: "scope")
+                    AboutBlockView(title: "about.howItWorks.title",
+                                   text: "about.howItWorks.text",
+                                   systemImage: "gearshape")
+                    AboutBlockView(title: "about.privacy.title",
+                                   text: "about.privacy.text",
+                                   systemImage: "lock.shield")
                 }
-                
             }
         }
         .toolbar {
@@ -50,7 +50,7 @@ struct AboutView: View {
                 HStack(spacing: 6) {
                     Image(systemName: "brain")
                         .font(.system(size: 17, weight: .semibold))
-                    Text(AboutText.appTitle)
+                    Text("about.appTitle")
                         .font(.system(size: 17, weight: .semibold))
                 }
             }

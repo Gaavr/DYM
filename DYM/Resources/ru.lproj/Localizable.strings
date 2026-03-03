@@ -3,10 +3,9 @@
  DYM
  
  Created by Andrei Gavrilenko on 25.02.2026.
- 
- */
+*/
 
-/* Settings */
+// Settings
 "settings.content" = "Контент";
 "settings.categories" = "Категории";
 "settings.randomOrder" = "Постеры в случайном порядке";
@@ -16,7 +15,7 @@
 "settings.theme" = "Тема";
 "settings.theme.System" = "Системная";
 "settings.theme.Light" = "Светлая";
-"settings.theme.Dark" = "Тeмная";
+"settings.theme.Dark" = "Тёмная";
 "settings.system" = "Система";
 "settings.language" = "Язык";
 "settings.actionButton" = "Action button";
@@ -34,22 +33,10 @@
 "settings.tapToChangeBackground" = "Нажмите, чтобы сменить фон";
 "settings.language.footer" = "Измените язык приложения в Настройки → DYM → Язык.";
 "settings.contactSupport" = "Написать в поддержку";
-"settings.shareApp" = "Поделиться приложением";
 "settings.deleteAllData.alert.title" = "Удалить все данные?";
 "settings.deleteAllData.alert.message" = "Будут удалены все постеры и все категории, кроме встроенной. Это действие нельзя отменить.";
 "settings.deleteAllData.alert.action" = "Удалить";
 "settings.deleteAllData.alert.failed.title" = "Ошибка удаления";
-
-/* About */
-"about.appTitle" = "Dominate Your Mind";
-"about.awareness.title" = "Ты — не твои мысли";
-"about.awareness.text" = "Ум генерирует мысли автоматически.\nБольшинство из них возникает без намерения и выбора.\n\nМысли — это события, а не команды.\nТы не обязан им следовать.\n\nОсознанность начинается в тот момент,\nкогда ты замечаешь,\nчто делает твой ум.";
-"about.interruption.title" = "Выход из автопилота";
-"about.interruption.text" = "Большинство ментальных трудностей происходит на автопилоте.\n\nЭто приложение создаeт осознанную паузу —\nмежду импульсом и реакцией.\n\nИменно в этой паузе появляется выбор.";
-"about.philosophy.title" = "Философия дизайна";
-"about.philosophy.text" = "Простота здесь — намеренная.\n\nМозг глубже обрабатывает меньше информации.\nПоэтому приложение избегает лент, стриков и шума.\n\nКаждый элемент служит одной цели:\nснизить трение между осознанностью и действием.";
-"about.howItWorks.title" = "Как это работает";
-"about.howItWorks.text" = "Вы открываете приложение осознанно.\n\nВы видите одно сообщение.\nОдну идею.\nОдин момент ясности.\n\nБез трекинга.\nБез убеждения.\nБез бесконечной прокрутки.\n\nТолько осознанность — когда она нужна.";
 
 "quote.new" = "Новая цитата";
 "quote.preview" = "Предпросмотр";
@@ -75,7 +62,7 @@
 "category.remove" = "Удалить из категории";
 "category.delete" = "Удалить с устройства";
 "category.choose" = "Выберите категорию";
-"category.defaultDescription" = "Изображения без определeнной темы";
+"category.defaultDescription" = "Изображения без определённой темы";
 "category.common.name" = "Общее";
 "category.common.desc" = "Изображения без конкретной темы";
 
@@ -93,26 +80,26 @@
 "common.done" = "Готово";
 "common.loading" = "Загрузка…";
 
-//ALerts
+// ALerts
 "settings.resetSettings.alert.title" = "Сбросить настройки?";
 "settings.resetSettings.alert.message" = "Настройки приложения будут возвращены к значениям по умолчанию.";
 "settings.resetSettings.alert.action" = "Сбросить";
 
-//Support message
+// Support message
 "support.mail.greeting" = "Привет!";
 "support.mail.prompt" = "Опиши проблему/идею:";
 "support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";
 
-/* ExportDataView */
+// ExportDataView
 "export.nav.title" = "Экспорт данных";
 "export.section.header" = "Экспорт";
 "common.select" = "Выбрать";
-"export.section.footer" = "Создаeт ZIP-архив со всеми постерами выбранной категории. Вы можете сохранить его в «Файлы» или поделиться с другим приложением.";
+"export.section.footer" = "Создаёт ZIP-архив со всеми постерами выбранной категории. Вы можете сохранить его в «Файлы» или поделиться с другим приложением.";
 "export.button.title" = "Экспортировать";
 "export.alert.failed.title" = "Ошибка экспорта";
 "common.ok" = "ОК";
 
-//Donate
+// Donate
 "donate.title" = "Поддержать разработку";
 
 // Init data
@@ -125,5 +112,24 @@
 "category.sport.name" = "Спорт";
 "category.sport.desc" = "Ты строишь себя прямо сейчас.";
 
-//footers
+// Footers
 "addPoster.unsplash.footer" = "Интеграция с Unsplash — в работе";
+
+// About
+"about.appTitle" = "Dominate Your Mind";
+
+// Awareness
+"about.awareness.title" = "Что это?";
+"about.awareness.text" = "Dominate Your Mind — способ управлять тем, что формирует ваши решения.\n\nПриложение показывает выбранные вами образы и сообщения, создавая устойчивый фокус на долгосрочных целях.\n\nЭто не мотивация.\nЭто система сознательного управления вниманием.";
+
+// Interruption
+"about.interruption.title" = "Зачем это нужно?";
+"about.interruption.text" = "Поведение зависит от часто активируемых когнитивных паттернов.\n\nПовторение усиливает нейронные связи и снижает порог их активации.\nЧасто активируемые образы получают приоритет при принятии решений.\n\nЕсли вы не выбираете, чем наполнять внимание — это сделает среда.\n\nDominate Your Mind даёт инструмент управления этим когнитивным контекстом.";
+
+// How it works
+"about.howItWorks.title" = "Как это работает";
+"about.howItWorks.text" = "Вы выбираете образы.\nОни регулярно попадают в поле зрения.\nЭто влияет на последующий выбор.\n\nПриложение — инструмент контроля входящих стимулов.";
+
+// Privacy
+"about.privacy.title" = "Приватность";
+"about.privacy.text" = "Все данные хранятся локально на вашем устройстве.\nПриложение не использует серверы и не собирает персональную информацию.\nРегистрация не требуется.\n\nВы полностью контролируете свои данные.";
