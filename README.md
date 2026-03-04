@@ -1,8 +1,10 @@
 # DYM (Dominate Your Mind)
 
-Minimalistic iOS app for quick motivation reset.
-DYM shows motivational posters designed to help you refocus, regain discipline, and break procrastination loops in seconds.
-Built as an independent SwiftUI project to demonstrate modern iOS development practices.
+Minimalistic iOS app for quick motivation reset.  
+DYM shows motivational posters designed to help you refocus, regain discipline, and break procrastination loops in seconds. 
+The idea behind the app is simple: sometimes you don't need a complex productivity system — you just need a strong visual trigger that instantly brings your focus back.
+
+Built as my first independent iOS project while learning SwiftUI.
 
 ---
 
@@ -25,18 +27,13 @@ Built as an independent SwiftUI project to demonstrate modern iOS development pr
 **Frameworks**
 - SwiftUI
 **Architecture**
-- MV + Services 
+- MV
 **Storage**
 - SwiftData
 **Other**
 - Localization
 
-## Motivation
-The idea behind DYM is simple:
-Sometimes you don't need a long productivity system — you just need a **strong visual trigger** that instantly brings your focus back.
-DYM provides that trigger.
-
----а
+---
 
 ## App Preview
 <p align="center">
