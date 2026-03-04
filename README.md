@@ -25,7 +25,7 @@ Built as an independent SwiftUI project to demonstrate modern iOS development pr
 **Frameworks**
 - SwiftUI
 **Architecture**
-- MVC
+- MV + Services 
 **Storage**
 - SwiftData
 **Other**
@@ -36,7 +36,7 @@ The idea behind DYM is simple:
 Sometimes you don't need a long productivity system — you just need a **strong visual trigger** that instantly brings your focus back.
 DYM provides that trigger.
 
----
+---а
 
 ## App Preview
 <p align="center">
