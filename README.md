@@ -49,7 +49,7 @@ Built as my first independent iOS project while learning SwiftUI.
 
 ## Author
 Andrei Gavrilenko  
-iOS Developer 
+iOS Developer  
 GitHub: https://github.com/Gaavr
 
 ---
