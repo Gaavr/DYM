@@ -1,0 +1,140 @@
+/*
+ Localizable.strings
+ DYM
+ 
+ Created by Andrei Gavrilenko on 25.02.2026.
+*/
+
+// Settings
+"settings.content" = "Контент";
+"settings.categories" = "Категории";
+"settings.randomOrder" = "Постеры в случайном порядке";
+"settings.messageStyle" = "Стиль постеров";
+"settings.messageStyle.footer" = "Positive — про награды и долгосрочные выгоды. Negative — про риски и последствия.";
+"settings.appearance" = "Внешний вид";
+"settings.theme" = "Тема";
+"settings.theme.System" = "Системная";
+"settings.theme.Light" = "Светлая";
+"settings.theme.Dark" = "Тёмная";
+"settings.system" = "Система";
+"settings.language" = "Язык";
+"settings.actionButton" = "Action button";
+"settings.actionButton.footer" = "Одно нажатие — и вы возвращаете контроль.\nНастройки → Action Button → DYM.";
+"settings.data" = "Данные";
+"settings.exportData" = "Экспорт данных";
+"settings.feedback" = "Обратная связь";
+"settings.rateApp" = "Оцените приложение";
+"settings.shareApp" = "Поделиться приложением";
+"settings.support" = "Поддержка";
+"settings.buyCoffee" = "Поддержать проект";
+"settings.warning" = "Сброс данных";
+"settings.resetSettings" = "Сбросить настройки";
+"settings.deleteAllData" = "Удалить все данные";
+"settings.tapToChangeBackground" = "Нажмите, чтобы сменить фон";
+"settings.language.footer" = "Измените язык приложения в Настройки → DYM → Язык.";
+"settings.contactSupport" = "Написать в поддержку";
+"settings.deleteAllData.alert.title" = "Удалить все данные?";
+"settings.deleteAllData.alert.message" = "Будут удалены все постеры и все категории, кроме встроенной. Это действие нельзя отменить.";
+"settings.deleteAllData.alert.action" = "Удалить";
+"settings.deleteAllData.alert.failed.title" = "Ошибка удаления";
+
+"quote.new" = "Новая цитата";
+"quote.preview" = "Предпросмотр";
+"quote.quote" = "Цитата";
+"quote.author" = "Автор";
+"quote.write" = "Записать цитату";
+"quote.example" = "Здесь появится ваша цитата";
+
+"poster.new" = "Новый постер";
+"poster.settings" = "Настройки постера";
+"poster.backgroundSettings" = "Настройки фона";
+"poster.baseColor" = "Базовый цвет";
+"poster.photoLibrary" = "Фотогалерея";
+"poster.addPoster" = "Добавить постер";
+"poster.noImage" = "Нет изображения";
+"poster.delete" = "Удалить фото?";
+"poster.chooseWhatDo" = "Выберите, что сделать с этим фото";
+"poster.noPosters" = "Нет постеров";
+"poster.dobavYje" = "Добавьте первый постер";
+
+"category.category" = "Категория";
+"category.addCategory" = "Добавить категорию";
+"category.remove" = "Удалить из категории";
+"category.delete" = "Удалить с устройства";
+"category.choose" = "Выберите категорию";
+"category.defaultDescription" = "Изображения без определённой темы";
+"category.common.name" = "Общее";
+"category.common.desc" = "Изображения без конкретной темы";
+
+"common.messageStyle" = "Стиль сообщений";
+"common.save" = "Сохранить";
+"common.name" = "Название";
+"common.description" = "Описание";
+"common.color" = "Цвет";
+"common.icon" = "Иконка";
+"common.cancel" = "Отмена";
+"common.add" = "Добавить";
+"common.delete" = "Удалить";
+"common.edit" = "Редактировать";
+"common.common" = "Разное";
+"common.done" = "Готово";
+"common.loading" = "Загрузка…";
+
+// ALerts
+"settings.resetSettings.alert.title" = "Сбросить настройки?";
+"settings.resetSettings.alert.message" = "Настройки приложения будут возвращены к значениям по умолчанию.";
+"settings.resetSettings.alert.action" = "Сбросить";
+
+// Support message
+"support.mail.greeting" = "Привет!";
+"support.mail.prompt" = "Опиши проблему/идею:";
+"support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";
+
+// ExportDataView
+"export.nav.title" = "Экспорт данных";
+"export.section.header" = "Экспорт";
+"common.select" = "Выбрать";
+"export.section.footer" = "Создаёт ZIP-архив со всеми постерами выбранной категории. Вы можете сохранить его в «Файлы» или поделиться с другим приложением.";
+"export.button.title" = "Экспортировать";
+"export.alert.failed.title" = "Ошибка экспорта";
+"common.ok" = "ОК";
+
+// Donate
+"donate.title" = "Поддержать разработку";
+
+// Init data
+"category.discipline.name" = "Дисциплина";
+"category.discipline.desc" = "Твои стандарты определяют твоё будущее.";
+"category.healthy.name" = "Здоровый образ жизни";
+"category.healthy.desc" = "Здоровье — основа всего, что ты хочешь построить.";
+"category.quitSmoking.name" = "Отказ от курения";
+"category.quitSmoking.desc" = "Ты управляешь импульсами, а не они тобой.";
+"category.sport.name" = "Спорт";
+"category.sport.desc" = "Ты строишь себя прямо сейчас.";
+
+// Footers
+"addPoster.unsplash.footer" = "Интеграция с Unsplash — в работе";
+
+// About
+"about.appTitle" = "Dominate Your Mind";
+
+// Awareness
+"about.awareness.title" = "Что это?";
+"about.awareness.text" = "Dominate Your Mind — способ управлять тем, что формирует ваши решения.\n\nПриложение показывает выбранные вами образы и сообщения, создавая устойчивый фокус на долгосрочных целях.\n\nЭто не мотивация.\nЭто система сознательного управления вниманием.";
+
+// Interruption
+"about.interruption.title" = "Зачем это нужно?";
+"about.interruption.text" = "Поведение зависит от часто активируемых когнитивных паттернов.\n\nПовторение усиливает нейронные связи и снижает порог их активации.\nЧасто активируемые образы получают приоритет при принятии решений.\n\nЕсли вы не выбираете, чем наполнять внимание — это сделает среда.\n\nDominate Your Mind даёт инструмент управления этим когнитивным контекстом.";
+
+// How it works
+"about.howItWorks.title" = "Как это работает";
+"about.howItWorks.text" = "Вы выбираете образы.\nОни регулярно попадают в поле зрения.\nЭто влияет на последующий выбор.\n\nПриложение — инструмент контроля входящих стимулов.";
+
+// Privacy
+"about.privacy.title" = "Приватность";
+"about.privacy.text" = "Все данные хранятся локально на вашем устройстве.\nПриложение не использует серверы и не собирает персональную информацию.\nРегистрация не требуется.\n\nВы полностью контролируете свои данные.";
+
+//Version
+"version.name" = "Версия";
+"disclaimer.general" = "Приложение предоставляет исключительно мотивационный контент и не является источником медицинских, психологических или профессиональных рекомендаций.";
+//----------------------------------------------------------------------------------------------------//

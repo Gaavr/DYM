@@ -1,0 +1,91 @@
+{
+    "categories": [
+        {
+            "seedToken": "common",
+            "nameKey": "category.common.name",
+            "descKey": "category.common.desc",
+            "color": "gray",
+            "icon": "♾️",
+            "isProtected": true,
+            "posters": []
+        },
+        {
+            "seedToken": "healthy",
+            "nameKey": "category.healthy.name",
+            "descKey": "category.healthy.desc",
+            "color": "green",
+            "icon": "🥦",
+            "isProtected": false,
+            "posters": [
+                { "imageName": "0_health_01_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_health_01_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_health_02_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_health_02_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_health_03_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_health_03_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_health_04_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_health_04_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_health_05_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_health_05_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_health_06_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_health_06_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_health_07_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_health_07_en", "intensity": "positive", "language": "en" }
+            ]
+        },
+        {
+            "seedToken": "quitSmoking",
+            "nameKey": "category.quitSmoking.name",
+            "descKey": "category.quitSmoking.desc",
+            "color": "blue",
+            "icon": "🫁",
+            "isProtected": false,
+            "posters": [
+                { "imageName": "0_quitSmoking_01_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_quitSmoking_01_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_quitSmoking_04_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_quitSmoking_04_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "1_quitSmoking_02_ru", "intensity": "negative", "language": "ru" },
+                { "imageName": "1_quitSmoking_02_en", "intensity": "negative", "language": "en" },
+                
+                { "imageName": "1_quitSmoking_03_ru", "intensity": "negative", "language": "ru" },
+                { "imageName": "1_quitSmoking_03_en", "intensity": "negative", "language": "en" },
+                
+                { "imageName": "1_quitSmoking_05_ru", "intensity": "negative", "language": "ru" },
+                { "imageName": "1_quitSmoking_05_en", "intensity": "negative", "language": "en" },
+                
+                { "imageName": "1_quitSmoking_06_ru", "intensity": "negative", "language": "ru" },
+                { "imageName": "1_quitSmoking_06_en", "intensity": "negative", "language": "en" }
+            ]
+        },
+        {
+            "seedToken": "sport",
+            "nameKey": "category.sport.name",
+            "descKey": "category.sport.desc",
+            "color": "orange",
+            "icon": "🏋️",
+            "isProtected": false,
+            "posters": [
+                { "imageName": "0_sport_01_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_sport_01_en.001", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_sport_02_ru", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_sport_02_en", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_sport_03_ru.001", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_sport_03_en.001", "intensity": "positive", "language": "en" },
+                
+                { "imageName": "0_sport_04_ru.001", "intensity": "positive", "language": "ru" },
+                { "imageName": "0_sport_04_en.001", "intensity": "positive", "language": "en" }
+            ]
+        }
+    ]
+}

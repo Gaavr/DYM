@@ -1,0 +1,106 @@
+//
+//  ImagesInCategoryView.swift
+//  DYM
+//
+//  Created by Andrei Gavrilenko on 28.01.2026.
+//
+
+import SwiftData
+import SwiftUI
+
+struct ImagesGalleryView: View {
+    
+    @Environment(\.editMode) private var editMode
+    
+    @Query private var posters: [Poster]
+    
+    @State var showAddSheet: Bool = false
+    
+    var currentCategory: Category
+    var categories: [Category]
+    
+    private let columns = [
+        GridItem(.flexible(), spacing: 6),
+        GridItem(.flexible(), spacing: 6),
+        GridItem(.flexible(), spacing: 6)
+    ]
+    
+    init(category: Category, categories: [Category]) {
+        self.currentCategory = category
+        let categoryID = category.id
+        
+        _posters = Query(
+            filter: #Predicate<Poster> { poster in
+                poster.category.id == categoryID
+            },
+            sort: \Poster.createdAt
+        )
+        
+        self.categories = categories
+    }
+    
+    var body: some View {
+        NavigationStack {
+            if posters.isEmpty {
+                ContentUnavailableView {
+                    Label("poster.noPosters", systemImage: "photo.on.rectangle.angled")
+                } description: {
+                    Text("poster.dobavYje")
+                } actions: {
+                    NavigationLink {
+                        AddPosterView(categories: categories, defaultCategory: currentCategory)
+                    } label: {
+                        Label("common.add", systemImage: "photo.badge.plus")
+                    }
+                }
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(posters) { poster in
+                            NavigationLink {
+                                FullscreenImageView(poster: poster)
+                            } label: {
+                                poster.image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .aspectRatio(4.0/5.0, contentMode: .fit)
+                                    .clipped()
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 18)
+                                            .fill(.ultraThinMaterial)
+                                            .opacity(0.15)
+                                    }
+                                    .clipShape(RoundedRectangle(cornerRadius: 18))
+                                    .shadow(radius: 10, y: 6)
+                            }
+                        }
+                    }
+                    .padding(10)
+                }
+            }
+        }
+        .navigationTitle(currentCategory.name)
+        .toolbar {
+            if (!posters.isEmpty) {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        AddPosterView(categories: categories, defaultCategory: currentCategory)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            
+        }
+    }
+    
+}
+
+#Preview {
+    NavigationStack {
+        ImagesGalleryView(
+            category: .example,
+            categories: [.example, .example2]
+        )
+    }
+}

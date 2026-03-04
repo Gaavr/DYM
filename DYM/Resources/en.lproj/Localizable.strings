@@ -1,0 +1,148 @@
+/* 
+  Localizable.strings
+  DYM
+
+  Created by Andrei Gavrilenko on 25.02.2026.
+  
+*/
+
+// Settings
+"settings.content" = "Content";
+"settings.categories" = "Categories";
+"settings.randomOrder" = "Random cards order";
+"settings.messageStyle" = "Message style";
+"settings.messageStyle.footer" = "Positive focuses on rewards and long-term gains. Negative highlights risks and consequences.";
+"settings.appearance" = "Appearance";
+"settings.theme" = "Theme";
+"settings.theme.System" = "System";
+"settings.theme.Light" = "Light";
+"settings.theme.Dark" = "Dark";
+"settings.system" = "System";
+"settings.language" = "Language";
+"settings.actionButton" = "Action Button";
+"settings.actionButton.footer" = "Assign this app to your Action Button to instantly redirect your focus.\nGo to Settings → Action Button to configure it.";
+"settings.data" = "Data";
+"settings.exportData" = "Export data";
+"settings.feedback" = "Feedback";
+"settings.rateApp" = "Rate app";
+"settings.support" = "Support";
+"settings.buyCoffee" = "Buy me a coffee";
+"settings.warning" = "Warning";
+"settings.resetSettings" = "Reset Settings";
+"settings.deleteAllData" = "Delete all data";
+"settings.tapToChangeBackground" = "Tap to change background";
+"settings.language.footer" = "Change the app language in Settings → DYM → Language.";
+"settings.contactSupport" = "Contact support";
+"settings.shareApp" = "Share App";
+"settings.deleteAllData.alert.title" = "Delete all data?";
+"settings.deleteAllData.alert.message" = "This will delete all posters and all categories except the built-in category. This action cannot be undone.";
+"settings.deleteAllData.alert.action" = "Delete";
+"settings.deleteAllData.alert.failed.title" = "Delete failed";
+//----------------------------------------------------------------------------------------------------
+
+"quote.new" = "New quote";
+"quote.preview" = "Preview";
+"quote.quote" = "Quote";
+"quote.author" = "Author";
+"quote.write" = "Write a quote";
+"quote.example" = "Your quote will appear here";
+
+"poster.new" = "New poster";
+"poster.settings" = "Poster Settings";
+"poster.backgroundSettings" = "Background settings";
+"poster.baseColor" = "Base color";
+"poster.photoLibrary" = "Photo Library";
+"poster.addPoster" = "Add poster";
+"poster.noImage" = "No image";
+"poster.delete" = "Delete photo?";
+"poster.chooseWhatDo" = "Choose what you want to do with this photo";
+"poster.noPosters" = "No posters";
+"poster.dobavYje" = "Add your first poster";
+
+"category.category" = "Category";
+"category.addCategory" = "Add Category";
+"category.remove" = "Remove from category";
+"category.delete" = "Delete from device";
+"category.choose" = "Choose a category";
+"category.defaultDescription" = "Images without specific theme";
+"category.common.name" = "Common";
+"category.common.desc" = "Images without specific theme";
+
+"common.messageStyle" = "Message style";
+"common.save" = "Save";
+"common.name" = "Name";
+"common.description" = "Description";
+"common.color" = "Color";
+"common.icon" = "Icon";
+"common.cancel" = "Cancel";
+"common.add" = "Add";
+"common.delete" = "Delete";
+"common.edit" = "edit";
+"common.common" = "Common";
+"common.select" = "Select";
+"common.done" = "Done";
+"common.loading" = "Loading…";
+
+// Alerts
+"settings.resetSettings.alert.title" = "Reset settings?";
+"settings.resetSettings.alert.message" = "This will restore the default settings for the app.";
+"settings.resetSettings.alert.action" = "Reset";
+//----------------------------------------------------------------------------------------------------
+
+// Support message
+"support.mail.greeting" = "Hi!";
+"support.mail.prompt" = "Please describe your issue or idea:";
+"support.mail.footer" = "---\nApp: %@ (%@)\niOS: %@";
+//----------------------------------------------------------------------------------------------------
+
+// Export
+"export.nav.title" = "Export Data";
+"export.section.header" = "Export";
+"export.section.footer" = "Creates a ZIP archive with all posters from the selected category. You can save it to Files or share it to any app.";
+"export.button.title" = "Export data";
+"export.alert.failed.title" = "Export failed";
+"common.ok" = "OK";
+//----------------------------------------------------------------------------------------------------
+
+// Donate
+"donate.title" = "Support development";
+//----------------------------------------------------------------------------------------------------
+
+// Init data
+"category.discipline.name" = "Discipline";
+"category.discipline.desc" = "Your standards determine your future";
+"category.healthy.name" = "Healthy Lifestyle";
+"category.healthy.desc" = "Your health is the foundation of everything you want to build.";
+"category.quitSmoking.name" = "Quit Smoking";
+"category.quitSmoking.desc" = "You control your impulses — not the other way around.";
+"category.sport.name" = "Sport";
+"category.sport.desc" = "You build yourself right now.";
+//----------------------------------------------------------------------------------------------------
+
+// Footers
+"addPoster.unsplash.footer" = "Unsplash integration — coming soon";
+//----------------------------------------------------------------------------------------------------
+
+// About
+"about.appTitle" = "Dominate Your Mind";
+
+// Awareness
+"about.awareness.title" = "What is it?";
+"about.awareness.text" = "Dominate Your Mind is a tool for managing what shapes your decisions.\n\nThe app presents selected images and messages you choose, creating a stable focus on your long-term goals.\n\nThis is not motivation.\nIt’s a system for intentional attention control.";
+
+// Why it matters
+"about.interruption.title" = "Why does it matter?";
+"about.interruption.text" = "Behavior depends on frequently activated cognitive patterns.\n\nRepetition strengthens neural pathways and lowers their activation threshold.\nImages that regularly enter your field of attention gain priority in decision-making.\n\nIf you don’t choose what fills your attention, the environment will.\n\nDominate Your Mind gives you a tool to actively shape that cognitive context.";
+
+// How it works
+"about.howItWorks.title" = "How it works";
+"about.howItWorks.text" = "You choose the images.\nThey repeatedly enter your field of attention.\nThis influences your next decision.\n\nThe app is a tool for controlling incoming stimuli.";
+
+// Privacy
+"about.privacy.title" = "Privacy";
+"about.privacy.text" = "All data is stored locally on your device.\nThe app does not use servers and does not collect personal information.\nNo account required.\n\nYou stay in full control of your data.";
+
+//Version
+"version.name" = "Version";
+"disclaimer.general" = "This app provides motivational content only and does not constitute medical, psychological, or professional advice.";
+//----------------------------------------------------------------------------------------------------//
