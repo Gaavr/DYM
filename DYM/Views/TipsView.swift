@@ -16,7 +16,7 @@ struct TipsView: View {
         NavigationStack {
             List {
                 if tipStore.isLoading {
-                    ProgressView("common.loading")
+                    ProgressView(LocalizedStringKey("common.loading"))
                 } else if !tipStore.errorMessage.isNilOrEmpty {
                     Text(tipStore.errorMessage!)
                         .foregroundStyle(.red)
@@ -26,7 +26,7 @@ struct TipsView: View {
                     }
                 } else if tipStore.products.isEmpty {
                     ContentUnavailableView(
-                        "donate.unavailable.title",
+                        String(localized: "donate.unavailable.title"),
                         systemImage: "heart",
                         description: Text("donate.unavailable.desc")
                     )
@@ -54,7 +54,7 @@ struct TipsView: View {
                     }
                 }
             }
-            .navigationTitle("donate.title")
+            .navigationTitle(Text("donate.title"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("common.done") { dismiss() }
@@ -62,6 +62,10 @@ struct TipsView: View {
             }
             .task {
                 await tipStore.load()
+                if tipStore.products.isEmpty {
+                    try? await Task.sleep(for: .seconds(3))
+                    await tipStore.load(force: true)
+                }
             }
         }
     }

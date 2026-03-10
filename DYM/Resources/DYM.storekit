@@ -26,11 +26,11 @@
         },
         {
           "description" : "Поддержка разработки DYM.",
-          "displayName" : "Базовая",
+          "displayName" : "Базовая поддержка",
           "locale" : "ru"
         }
       ],
-      "productID" : "support.basic",
+      "productID" : "support.basic.v2",
       "referenceName" : "Basic Support",
       "type" : "Consumable"
     },
@@ -46,16 +46,16 @@
         },
         {
           "description" : "Поддержка разработки DYM.",
-          "displayName" : "Расширенная",
+          "displayName" : "Расширенная поддержка",
           "locale" : "ru"
         }
       ],
-      "productID" : "support.extended",
+      "productID" : "support.extended.v2",
       "referenceName" : "Extended Support",
       "type" : "Consumable"
     },
     {
-      "displayPrice" : "3.99",
+      "displayPrice" : "4.99",
       "familyShareable" : false,
       "internalID" : "69BCC51A",
       "localizations" : [
@@ -66,12 +66,12 @@
         },
         {
           "description" : "Поддержка разработки DYM.",
-          "displayName" : "Максимальная",
+          "displayName" : "Максимальная поддержка",
           "locale" : "ru"
         }
       ],
-      "productID" : "support.maximum",
-      "referenceName" : "Large coffee",
+      "productID" : "support.maximum.v2",
+      "referenceName" : "Maximum Support",
       "type" : "Consumable"
     }
   ],

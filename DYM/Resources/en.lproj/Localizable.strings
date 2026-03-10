@@ -68,6 +68,7 @@
 "category.common.name" = "Common";
 "category.common.desc" = "Images without specific theme";
 
+
 "common.messageStyle" = "Message style";
 "common.save" = "Save";
 "common.name" = "Name";
@@ -82,6 +83,7 @@
 "common.select" = "Select";
 "common.done" = "Done";
 "common.loading" = "Loading…";
+"common.retry" = "Retry";
 
 // Alerts
 "settings.resetSettings.alert.title" = "Reset settings?";
@@ -106,6 +108,8 @@
 
 // Donate
 "donate.title" = "Support development";
+"donate.unavailable.title" = "Support is temporarily unavailable";
+"donate.unavailable.desc" = "Please try again later.";
 //----------------------------------------------------------------------------------------------------
 
 // Init data

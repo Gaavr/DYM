@@ -17,9 +17,9 @@ final class TipStore: ObservableObject {
     @Published private(set) var isPurchasing = false
     
     private let productIDs: [String] = [
-        "support.basic",
-        "support.extended",
-        "support.maximum"
+        "support.basic.v2",
+        "support.extended.v2",
+        "support.maximum.v2"
     ]
     
     private var updatesTask: Task<Void, Never>?
@@ -49,18 +49,16 @@ final class TipStore: ObservableObject {
     
     func load(force: Bool = false) async {
         if !force, !products.isEmpty { return }
-
+        
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
-
+        
         do {
             let loaded = try await Product.products(for: productIDs)
             products = loaded.sorted { $0.price < $1.price }
-
-            if products.isEmpty {
-                errorMessage = "Support is temporarily unavailable. Please try again later."
-            }
+            
+            
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -72,10 +70,10 @@ final class TipStore: ObservableObject {
         isPurchasing = true
         errorMessage = nil
         defer { isPurchasing = false }
-
+        
         do {
             let result = try await product.purchase()
-
+            
             switch result {
             case .success(let verification):
                 let transaction = try verified(verification)

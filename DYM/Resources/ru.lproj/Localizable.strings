@@ -79,6 +79,7 @@
 "common.common" = "Разное";
 "common.done" = "Готово";
 "common.loading" = "Загрузка…";
+"common.retry" = "Повторить";
 
 // ALerts
 "settings.resetSettings.alert.title" = "Сбросить настройки?";
@@ -101,6 +102,8 @@
 
 // Donate
 "donate.title" = "Поддержать разработку";
+"donate.unavailable.title" = "Поддержка временно недоступна";
+"donate.unavailable.desc" = "Пожалуйста, попробуйте позже.";
 
 // Init data
 "category.discipline.name" = "Дисциплина";
