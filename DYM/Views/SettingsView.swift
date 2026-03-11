@@ -14,7 +14,6 @@ struct SettingsView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.requestReview) private var requestReview
     @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject private var tipStore: TipStore
     
     @Query private var categories: [Category]
     
@@ -126,12 +125,12 @@ struct SettingsView: View {
                     Label("settings.contactSupport", systemImage: "envelope")
                 }
                 
-                NavigationLink {
-                    TipsView(tipStore: tipStore)
-                        .task { await tipStore.load() }
-                } label: {
-                    Label("donate.title", systemImage: "cup.and.saucer")
-                }
+//                NavigationLink {
+//                    TipsView(tipStore: tipStore)
+//                        .task { await tipStore.load() }
+//                } label: {
+//                    Label("donate.title", systemImage: "cup.and.saucer")
+//                }
             }
             
             // MARK: -Warning
