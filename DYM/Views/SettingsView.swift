@@ -124,13 +124,6 @@ struct SettingsView: View {
                 } label: {
                     Label("settings.contactSupport", systemImage: "envelope")
                 }
-                
-//                NavigationLink {
-//                    TipsView(tipStore: tipStore)
-//                        .task { await tipStore.load() }
-//                } label: {
-//                    Label("donate.title", systemImage: "cup.and.saucer")
-//                }
             }
             
             // MARK: -Warning
